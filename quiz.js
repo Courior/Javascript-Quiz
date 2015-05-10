@@ -10,13 +10,36 @@ quiz.init = function(){
 	quiz.answered=1;
 	$("#answerdQuestion").text('Question:'+quiz.answered);
 	$.getJSON( "questions.json", quiz.populateData);
+	$.ajax({
+    type: "GET",
+    url: "questions.xml",
+    dataType: "xml",
+    success: quiz.parseXml
+   });
  }
-quiz.getXml= function(){
-	var xml = $.parseXML(questions.xml),
-	$xml = $( xml ),
-	$test = $xml.find('question[number]="1"');
-	console.log($test.text());
+quiz.getXml= function(data){
+	console.log(data);
+	console.log($(data).find('question[number="1"]').text());
  }
+quiz.parseXml= function(xml){
+	//create array questions
+	var questions = [];
+	console.log(xml);
+	console.log($(xml).find('question').each().text());
+/*	var question = $(xml).find('question')
+	.each(function(question){
+		console.log(question);
+		//add each question to data json
+		//add each text to question
+		console.log($(question).find('text').text());
+		//add each explanaion to question
+		console.log($(question).find('explanation').text());
+
+		//add each answer to question
+
+	})*/
+	//add each question to array
+}
  quiz.populateData= function(data){
 		// take data in report and output it to the report table
 		quiz.data = data;
