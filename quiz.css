@@ -4,6 +4,20 @@ body {
 #quiz{
 	max-width: 360px;
 }
+.unanseredQuiz #explain{
+
+  visibility: hidden;
+}
+.anseredQuiz #explain{
+  visibility: visible;
+}
+.anseredQuiz .answer{
+  background: red;
+}
+.anseredQuiz .answer.correct{
+  background: green;
+}
+
 h1 {
     color: orange;
     text-align: center;

@@ -2,8 +2,9 @@ var quiz = {};//all variables will be contained within this array. This will sto
 quiz.data;
 quiz.correct;
 quiz.answered;
-
+quiz.currentQuestion={};
 quiz.init = function(){
+
 	console.log("init ");
 	quiz.correct=0;
 	quiz.answered=1;
@@ -28,24 +29,19 @@ quiz.outputRandomQuestion= function(){
 	console.log('Length='+quiz.data.questions.question.length);
 	var number = Math.floor((Math.random() * quiz.data.questions.question.length-1)+1);
 	console.log('Random Number='+number);
-	var q = quiz.data.questions.question[number].q;
-	var a = quiz.data.questions.question[number].a;
-	var b = quiz.data.questions.question[number].b;
-	var c = quiz.data.questions.question[number].c;
-	var d = quiz.data.questions.question[number].d;
-	var ex= quiz.data.questions.question[number].explanation;
+	quiz.currentQuestion= quiz.data.questions.question[number];
 	console.log(quiz.data.questions.question[number]);
-	$("#question").text(q);
-	$("#explain").text(ex);
-	$("#explain").css("visibility","hidden");
-	$("#aCheck").val(a['-answer']);
-	$("#bCheck").val(b['-answer']);
-	$("#cCheck").val(c['-answer']);
-	$("#dCheck").val(d['-answer']);
-	$("#aLabel").text(a['#text']);
-	$("#bLabel").text(b['#text']);
-	$("#cLabel").text(c['#text']);
-	$("#dLabel").text(d['#text']);
+	$("#question").text(quiz.currentQuestion.q);
+	$("#explain").text(quiz.currentQuestion.ex);
+	//$("#explain").css("visibility","hidden");
+	$("#aCheck").val(quiz.currentQuestion.a['-answer']);
+	$("#bCheck").val(quiz.currentQuestion.b['-answer']);
+	$("#cCheck").val(quiz.currentQuestion.c['-answer']);
+	$("#dCheck").val(quiz.currentQuestion.d['-answer']);
+	$("#aLabel").text(quiz.currentQuestion.a['#text']);
+	$("#bLabel").text(quiz.currentQuestion.b['#text']);
+	$("#cLabel").text(quiz.currentQuestion.c['#text']);
+	$("#dLabel").text(quiz.currentQuestion.d['#text']);
 	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
 	if(quiz.data.questions.question.length>2)
 		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
@@ -60,15 +56,12 @@ quiz.outputRandomQuestion= function(){
 
 quiz.nextQuestion= function(){
 	quiz.answered=quiz.answered+1;
+	//needs to be changed
+	$("#quiz").attr("class", "unanseredQuiz");
 	$("#answerdQuestion").text('Question:'+quiz.answered);
-	$("#a").css( "background-color", "" );//resets the color to the original style
-	$("#b").css( "background-color", "" );//resets the color to the original style
-	$("#c").css( "background-color", "" );//resets the color to the original style
-	$("#d").css( "background-color", "" );//resets the color to the original style
-	$('#aCheck').attr('checked', false);  // Unchecks it
-	$('#bCheck').attr('checked', false);  // Unchecks it
-	$('#cCheck').attr('checked', false);  // Unchecks it
-	$('#dCheck').attr('checked', false);  // Unchecks it
+	$(".correct").removeClass("correct");
+	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
+
 
 	quiz.outputRandomQuestion();
 }
@@ -83,15 +76,20 @@ quiz.answer = function(){
 
 		console.log(checkedValues.length);
 	if (checkedValues.length != 0) {
-
-	$("#explain").css("visibility","visible");
+		//need to be changed
+		$("#quiz").attr("class", "anseredQuiz");
+	//$("#explain").css("visibility","visible");
 	console.log('here');
+	//use current question json data to get correct answer and mark it so
 	$('input:checkbox').each(function() {
 	console.log('hereq');
-		if(this.value=='false')
-			$(this).parent().css( "background-color", "red" );
-		else
-			$(this).parent().css( "background-color", "green" );
+	//needs to be changed
+		if(this.value==='false'){
+			//$(this).parent().css( "background-color", "red" );
+		}
+		else{
+			$(this).parent().addClass("correct");
+		}
 	});
 
 	console.log('here2');
@@ -101,8 +99,9 @@ quiz.answer = function(){
 		}
 		else{
 			quiz.correct=quiz.correct+1;
-			$("#score").text('Score:'+quiz.correct);
+
 		}
+		$("#score").text('Score:'+quiz.correct);
 	}
 }
 $(quiz.init);
