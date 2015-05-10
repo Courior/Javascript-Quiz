@@ -1,0 +1,3367 @@
+{
+  "questions": {
+    "question": [
+      {
+        "-number": "0",
+        "a": { "-answer": "false" },
+        "b": { "-answer": "false" },
+        "c": { "-answer": "false" },
+        "d": { "-answer": "true" }
+      },
+      {
+        "-number": "1",
+        "q": "A class DynamicArray implementing an extendable array of objects has a method insertElementAt which inserts elements at specified index. The class Queue allows insert operations at the rear. If class Queue inherits class DynamicArray, which design principle is violated?",
+        "a": {
+          "-answer": "false",
+          "#text": "Single responsibility principle"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Dependency inversion principle"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Open closed principle"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Liskov substitution principle"
+        },
+        "explanation": "Option D Liskov Substitution Principle is the correct answer. Class DynamicArray having a method to insert an element at a specified index cannot be inherited by class Queue, which only allows elements to be inserted at the rear. In other words, a Queue is not a DynamicArray which violates the principle. The other options are invalid."
+      },
+      {
+        "-number": "2",
+        "q": "A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?",
+        "a": {
+          "-answer": "true",
+          "#text": "Single responsibility principle"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Dependency inversion principle"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Open closed principle"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Liskov substitution principle"
+        },
+        "explanation": "Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply"
+      },
+      {
+        "-number": "3",
+        "q": "You are extending an abstract class Controller from a 3rd party library by implementing some of the abstract methods. Which of the following design principle is followed? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Single responsibility principle"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Dependency inversion principle"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Open closed principle"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Liskov substitution principle "
+        },
+        "explanation": "Open Closed Principle is followed by the 3rd party library which allows extending but is closed for modification. The design should not be rigid and should use interfaces or abstract classes for extending different implementations. The other options are invalid."
+      },
+      {
+        "-number": "4",
+        "q": "A class Order has three methods – preOrder, processOrder and postOrder. PreOrder and PostOrder classes use the Order class. If postOrder method changes PreOrder class remains affected. Which of the following design principle is violated?",
+        "a": {
+          "-answer": "true",
+          "#text": "Interface segregation principle"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Dependency inversion principle"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Open closed principle"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Liskov substitution principle"
+        },
+        "explanation": "Option A Interface Segregation Principle is violated and is the right answer. Clients PreOrder and PostOrder only use the methods that they like to use, preOrder and postOrder methods respectively. Hence the solution is to create two interfaces having one of these methods and have the Order class implement these interfaces. The other options are not applicable"
+      },
+      {
+        "-number": "5",
+        "q": "A concrete class Certificate changes frequently. If you wish to inherit Certificate, which design principle will be violated?  ",
+        "a": {
+          "-answer": "false",
+          "#text": "Interface segregation principle"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Dependency inversion principle"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Open closed principle"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": " Liskov substitution principle "
+        },
+        "explanation": "Option B Dependency Inversion Principle will be violated which is the correct answer. All concrete classes, which are subject to change, should not be inherited. Since the inherited classes will also have to be changed, rigid design should be avoided. The other options may not apply."
+      },
+      {
+        "-number": "6",
+        "q": "An application page is required to have a functionality to hide a section of a page on click of a button and show the section again on another click. You plan to implement the functionality using scripting technology. Which tier would this portion of the code be based on?",
+        "a": {
+          "-answer": "false",
+          "#text": "Web tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Resource tier "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Client tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Business tier"
+        },
+        "explanation": "Option C Client Tier contains code which is executed on the browser or any device. Scripting is associated with execution on the client side. For simple functionality like hiding a section, the request may not be sent back to the server and can be handled on the client side itself. The other options Web, Resource and Business tier do not fit."
+      },
+      {
+        "-number": "7",
+        "q": "The user inputs user name and password and clicks on login button. The system responds by presenting the home page for the type of the user like admin home page for administrators, customer home page for customers. Which tier would handle this decision logic? ",
+        "a": {
+          "-answer": "true",
+          "#text": "Web tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Resource tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Business tier"
+        },
+        "explanation": "Option A Web Tier contains decision making code to direct response to the appropriate page. The web tier handles the requests, executes decision making and sends the related response to the client. Since the question specifically asks which tier would handle the decision making logic, option D business tier is not considered. The other options too are not applicable."
+      },
+      {
+        "-number": "8",
+        "q": "The user selects the wish list of books and clicks on purchase button. The system responds by presenting the user details and a confirmation whether the user would like to change the existing delivery address. Which tier would handle the extraction logic?",
+        "a": {
+          "-answer": "false",
+          "#text": "Web tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Resource tier "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client tier"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": " Business tier"
+        },
+        "explanation": "Business Tier would handle the logic to extract the existing user details. Since the user wishes to purchase the books, the existing delivery address would be required for confirmation and should be extracted from the business tier. The web tier would be designed to create the response from the business tier and is not the best answer. The other tiers are not related."
+      },
+      {
+        "-number": "9",
+        "q": "The user enters search criteria and clicks on search button. The system responds by providing the search results. The system is connected to a mainframe via a middleware. The mainframe contains the searchable data. Which tier would handle the search logic? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Web tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Resource tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client tier"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Integration tier"
+        },
+        "explanation": "Option D Integration Tier contains code to interact with the mainframe system via a middleware. A synchronous point-to-point messaging system can push the search criteria through the input queue and get the results back from the output queue. The other options are not meant for integration with mainframe system."
+      },
+      {
+        "-number": "10",
+        "q": "You wish to implement clustering on the relational database. Which tier would handle the clustering mechanism? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Web tier"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Resource tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Integration tier"
+        },
+        "explanation": "Option B Resource Tier mainly constitutes of external systems, which feeds data to the system. The external systems can be a relational database, a file store or a hardware device. The clustering mechanism to be implemented on the relational database is related to resource tier and the abstraction to access the database is provided by the integration tier. Hence the other options are incorrect."
+      },
+      {
+        "-number": "11",
+        "q": "A Java EE application is installed on an application server and uses a database which is connected by a NetGear GS116 16-port network switch. Which layer constitutes the switch?",
+        "a": {
+          "-answer": "false",
+          "#text": "Virtual platform layer"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Networking infrastructure layer"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Enterprise services layer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Compute and storage layer"
+        },
+        "explanation": "Option B Networking Infrastructure Layer is the correct answer. The networking hardware like switches, routers and load balancers form this layer. The other options are incorrect."
+      },
+      {
+        "-number": "12",
+        "q": "In which layer of a Java EE application does WebLogic application server exist? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Virtual platform layer"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Application infrastructure layer"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Enterprise services layer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Compute and storage layer"
+        },
+        "explanation": "Option B Application Infrastructure Layer is the correct answer. It helps reside the virtual platform components inside its container. The other options do not match."
+      },
+      {
+        "-number": "13",
+        "q": "A Java EE application running on Linux platform makes use of which layer? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Virtual platform layer "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Application infrastructure layer"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Enterprise services layer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Compute and storage layer"
+        },
+        "explanation": "Option C Enterprise Services Layer is the correct answer. It constitutes operating system calls required by the application infrastructure layer. The other options are incorrect. "
+      },
+      {
+        "-number": "14",
+        "q": " A Java EE application is hosted on an IBM x3650 box. Which layer is being used?",
+        "a": {
+          "-answer": "false",
+          "#text": "Virtual platform layer"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Application infrastructure layer"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Enterprise services layer"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Compute and storage layer"
+        },
+        "explanation": "Option D Compute and Storage Layer is the correct answer. The hardware on which the enterprise service like the operating system is installed constitutes the compute and storage layer. The other options do not apply"
+      },
+      {
+        "-number": "15",
+        "q": "Which layer of a Java EE application constitutes enterprise beans?",
+        "a": {
+          "-answer": "true",
+          "#text": "Virtual platform layer"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Application infrastructure layer"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Enterprise services layer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Compute and storage layer"
+        },
+        "explanation": "Option A Virtual Platform Layer is the correct answer. It constitutes components in the Java EE stack like enterprise beans and servlets. The Java EE application is built on the components of APIs. The other options do not have these components."
+      },
+      {
+        "-number": "16",
+        "q": "Scalability is a disadvantage of two-tier architectures. Which of the following is a known reason for scalability issues? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Only database can be scaled"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Expensive separate connection for each client"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Business rules can be changed"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Other components impacted due to changes"
+        },
+        "explanation": "A and B Explanation: Options A and B are correct answers because every client establishes an expensive separate connection, which makes it limited, and only database component can be scaled vertically. "
+      },
+      {
+        "-number": "17",
+        "q": "Which of the following justifies maintainability as a disadvantage of two-tier architecture? Answer choices: (Select best answer)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "Other components impacted due to changes "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "If one component fails, entire system stops working "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Database cannot take the load "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Redeployment to all clients required if database is changed "
+        },
+        "explanation": "Option A is the correct answer because if one component changes it affects other components as well. Option B, C and D are not maintainability problems."
+      },
+      {
+        "-number": "18",
+        "q": "What makes availability a disadvantage of two-tier architecture?Answer choices: (Select best answer)  ",
+        "a": {
+          "-answer": "false",
+          "#text": "Other interfaces impacted due to changes "
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "If database fails, entire system stops working"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Database cannot be scaled"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Monitoring of all the clients is not possible "
+        },
+        "explanation": "Option B is the right answer because if database fails the entire system shuts down causing failure. Horizontal scaling is possible on the database but requires client intelligence.  Options A, C and D are not disadvantages of availability. "
+      },
+      {
+        "-number": "19",
+        "q": "For which scenario security can be an advantage in a two-tier architecture?",
+        "a": {
+          "-answer": "false",
+          "#text": "Good performance due to local callers"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Inside firewall using local network"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Monitoring of all the clients is not possible"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Other interfaces impacted due to changes"
+        },
+        "explanation": "Option B is the best answer because if the applications are executed inside the company firewall using local area network, there arefewer chances of a security breach by unsecured computers. However two-tier architectures can be on the Internet as well and are vulnerable to attacks. Options A, C and D are not advantages of security."
+      },
+      {
+        "-number": "20",
+        "q": "Given a feature why is performance an advantage of two-tier architecture? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Database caching "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Simple to troubleshoot "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": " If one component fails, entire system still works"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Change does not impact other clients"
+        },
+        "explanation": "Option A is the best answer because database caching helps improve performance. Unless clients are underpowered or results retrieved are very large, performance should be fine. Other options do not contribute to performance advantages."
+      },
+      {
+        "-number": "21",
+        "q": "Why is extensibility poor in two-tier architecture?",
+        "a": {
+          "-answer": "true",
+          "#text": "Client and business logic tightly coupled"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Separate business tier exists"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "If database fails, entire system still works "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Easy to extend across all clients "
+        },
+        "explanation": "Option A is the best answer for poor extensibility because the client is tightly coupled with business logic. Another option is that the business logic and data access are tightly coupled. The other options fail to qualify as extensibility disadvantages."
+      },
+      {
+        "-number": "22",
+        "q": "What are the two architectural characteristics of two-tier architecture? Answer choices: (Select 2)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "Thin client with business and data access tightly coupled"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": " Thick client with presentation and business tier tightly coupled     "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Thin client with business and data access loosely coupled"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Thick client with presentation and business tier loosely coupled"
+        },
+        "explanation": "Options A and B are correct answers. There are two architectural characteristics of two-tier architectures. First, business and data access tightly coupled using a thin client. Second, presentation and business tier tightly coupled using a thick client. The options C and D are incorrect."
+      },
+      {
+        "-number": "23",
+        "q": "Why is manageability a disadvantage of two-tier architecture? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Other components impacted due to changes"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "If one component fails, entire system stops working"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Database cannot take the load "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Redeployment to all clients required if database changed"
+        },
+        "explanation": "Option D is the correct answer because if database changes it may require redeployment for all clients. Option A, B and C are not manageability problems. "
+      },
+      {
+        "-number": "24",
+        "q": "Which technologies are used for thick client two-tier architecture? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Swing"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JSP"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JDBC"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "explanation": " Options A and C are correct answers. Since the client is thick, the Swing user interface is tightly coupled with the business logic which interacts with the database with JDBC mechanism. Option B, JSP is for thin clients. Option D, EJB is for business tier thin clients."
+      },
+      {
+        "-number": "25",
+        "q": "Which technologies are used for thin client two-tier architecture? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "false",
+          "#text": "Swing"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JSP"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Stored Procedures"
+        },
+        "explanation": "Options B and D are correct answers. Since the client is thin using JSP technology, the business logic is tightly coupled with data access through stored procedures. Option A is for thick clients. Option C is invalid. "
+      },
+      {
+        "-number": "26",
+        "q": "Which of the following justifies scalability as an advantage of three-tier architectures? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Supports horizontal scaling"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Pooling supported for database connections"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Modular supporting scalability of tiers"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Expensive separate connection for each client"
+        },
+        "explanation": "Options A, B and C are correct answers because the design is modular supporting horizontal scalability of tiers and the database connections can be pooled. Option D is incorrect because it is a property of two-tier architectures."
+      },
+      {
+        "-number": "27",
+        "q": "Which of the following justifies maintainability as an advantage of three-tier architecture? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Tiers can be changed independently"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Entire system stops working if one component fails"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Load on the database cannot be handled"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": " If database changes redeployment on all clients is required"
+        },
+        "explanation": " Option A is the correct answer because all tiers can be changed without affecting each other. Option B, C and D are not maintainability problems. "
+      },
+      {
+        "-number": "28",
+        "q": "What makes availability an advantage of three-tier architecture? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Changes impact other interfaces"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "No single point of failure"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Cannot scale the database"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Not possible to monitor all clients Correct"
+        },
+        "explanation": "Option B is the right answer because there is no single point of failure as it has multiple instances. Options A, C and D are not advantages of availability. "
+      },
+      {
+        "-number": "29",
+        "q": "For which scenario security can be an advantage in three-tier architecture? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Good performance due to local callers"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Security can be applied at each tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Monitoring of all the clients is not possible"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Other interfaces impacted due to changes"
+        },
+        "explanation": "Option B is the best answer because security can be applied at each tier at cost to performance. Options A, C and D are not advantages of security. "
+      },
+      {
+        "-number": "30",
+        "q": "Given a feature why is performance an advantage of three-tier architecture? Answer choices: (Select best answer)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "Load balancing multiple instances"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Simple to troubleshoot"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "If one component fails, entire system -fails"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Changes do not impact other clients"
+        },
+        "explanation": "Option A is the best answer because load balancing multiple instances improves the performance. Other options do not contribute to performance advantages."
+      },
+      {
+        "-number": "31",
+        "q": "Why is extensibility rich in three-tier architecture? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Client and business logic tightly coupled"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Components can be added/removed with changing requirements"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "If database fails, entire system still works  "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Easy to extend across all clients"
+        },
+        "explanation": "Option B is the best answer for rich extensibility because the components can be added or removed with changing business requirements. The other options fail to qualify as extensibility advantages."
+      },
+      {
+        "-number": "32",
+        "q": "Why is manageability an advantage of three-tier architecture?",
+        "a": {
+          "-answer": "false",
+          "#text": "Other components impacted due to changes"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "If one component fails, entire system stops working"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Database cannot take the load"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Easier to monitor the components"
+        },
+        "explanation": "Option D is the correct answer because manageability is greatly improved since the components can be easily monitored. Option A, B and C are not manageability advantages. "
+      },
+      {
+        "-number": "33",
+        "q": "Which tier is introduced in a multi-tier architecture?",
+        "a": {
+          "-answer": "false",
+          "#text": "Resource"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Integration"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Business "
+        },
+        "explanation": " Options C is the correct answer because integration tier is introduced in a multi-tier architecture. The other options are already present in three-tier architecture."
+      },
+      {
+        "-number": "34",
+        "q": "Which of the following are types of replication provided by application servers improving system availability?Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Active replication"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Backup replication"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Passive replication"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Core replication"
+        },
+        "explanation": "Options A and C are correct answers because these are replication strategies enforced by the application server which helps improving availability. The options B and D are invalid."
+      },
+      {
+        "-number": "35",
+        "q": "Which of the following are ways to configure scalability? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Vertical scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Active scalability"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Horizontal scalability "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Passive scalability"
+        },
+        "explanation": " A and C Explanation: Options A and C are correct answers because you can configure scalability using horizontal and vertical ways. The other options are invalid. "
+      },
+      {
+        "-number": "36",
+        "q": "Login is failing for valid users when more than 200 users are hitting the web application. Which non-functional requirement is described? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Availability"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Reliability"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Performance "
+        },
+        "explanation": "The non-functional requirement in the above scenario is reliability because the system is not reliable as valid scenarios are not working as expected. Hence option C is correct. The other options are not relevant to the scenario. "
+      },
+      {
+        "-number": "37",
+        "q": " It is mandatory to have a firewall for all requests hitting the business tier from the web tier. Which non-functional requirement is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Availability"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Security"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Performance"
+        },
+        "explanation": "The non-functional requirement described is the best practice of security wherein all the web requests hitting the web tier should be diverted to the business tier via firewall. Hence option C is correct. All other options are incorrect because they are not relevant to the scenario. "
+      },
+      {
+        "-number": "38",
+        "q": "It is possible to add a server to an existing cluster of applications for the online portal when load increases? Which non-functional requirement is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Manageability"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Maintainability"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Performance"
+        },
+        "explanation": "The non-functional requirement described is manageability where new servers can be added to existing cluster of applications when load increases. Hence option B is correct. The other options do not address the scenario described."
+      },
+      {
+        "-number": "39",
+        "q": "The online portal being developed should have separate servers for all the three applications being developed so that if there is any change in one it may not affect the other. Which non-functional requirement is described?",
+        "a": {
+          "-answer": "false",
+          "#text": "Manageability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Extensibility"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Maintainability"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Performance"
+        },
+        "explanation": "The non-functional requirement described in above scenario is maintainability where changes in one application should not affect the other when deployed. Hence option C is correct. The other options do not apply."
+      },
+      {
+        "-number": "40",
+        "q": "Due to increase in marketing campaigns the volume of users doubles every year for the next 5 years. Which non-functional requirement is described? ",
+        "a": {
+          "-answer": "true",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Availability"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Reliability"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Performance"
+        },
+        "explanation": "The non-functional requirement described is scalability which signifies how the system responds to additional demand. Hence option A is correct. The options B, C and D are incorrect as they are not relevant to the business scenario."
+      },
+      {
+        "-number": "41",
+        "q": "The search functionality in a job portal is taking more than five seconds, but the expectation was around two seconds. Which non-functional requirement is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Availability"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Reliability"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Performance"
+        },
+        "explanation": "The non-functional requirement described in the above scenario is related to performance of the search functionality of the job portal. Hence option D is correct. All other options are invalid."
+      },
+      {
+        "-number": "42",
+        "q": "The batch program currently accepted an excel sheet as an input. However, the program should be extensible to support both text files and XML files. Which non-functional requirement is described? ",
+        "a": {
+          "-answer": "false",
+          "#text": "Scalability"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Availability"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Reliability"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Extensibility"
+        },
+        "explanation": " The non-functional requirement described is extensibility which can accommodate flexible business requirements over time. Hence option D is correct. The other options do not address changing business requirements and are incorrect."
+      },
+      {
+        "-number": "43",
+        "q": " Clients are terminals connected to the mainframe which have a single point of failure. Which type of architecture is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "1-tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": " 2-tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "3-tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "N-tier"
+        },
+        "explanation": "Typically one-tier architectures have clients which are terminals connected to the mainframe. They have a single point of failure, and any changes affect the entire system. Hence option A is correct. The other options are not relevant to the described architecture. "
+      },
+      {
+        "-number": "44",
+        "q": "The clients are browser-based having business logic deployed on the server and the database is deployed on another server. All the three components are running on different systems. Which type of architecture is described? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "1-tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "2-tier"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "3-tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "N-tier"
+        },
+        "explanation": "The described architecture is three-tier which has presentation running on the browser, business logic on the server and database on another server. Hence option C is correct. The other architectures do not address the scenario"
+      },
+      {
+        "-number": "45",
+        "q": "A thick client is connected with Oracle database on a different server. Which type of architecture is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "1-tier"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "2-tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "3-tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "N-tier"
+        },
+        "explanation": "The described architecture is two-tier based because the business logic and presentation are on the same server and the database logic on a different server. Hence option B is correct. The other architectures do not fit the scenario described."
+      },
+      {
+        "-number": "46",
+        "q": "Which of the following are benefits of rich clients? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Less load on server"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Simpler deployment options"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Ease of complex user interaction"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Simpler state management"
+        },
+        "explanation": "he benefits of rich clients include having less processing on the server, possible complex user interaction and a simpler state or session management. Hence options A, C and D are correct. The option B is incorrect because deployment options are not simpler. "
+      },
+      {
+        "-number": "47",
+        "q": "Which of the following are drawbacks of rich clients? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Redeployment necessary in all clients"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No session management"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "More resources required"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Less interaction with server"
+        },
+        "explanation": "The drawbacks of rich client include redeployment for any changes in all clients and more resources consumed. Hence options A and C are correct. The options B and D are incorrect because both are benefits of rich clients."
+      },
+      {
+        "-number": "48",
+        "q": "Which of the following are benefits of browser-based clients? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "No redeployment required for changes"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "More processing load on server"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Communication through standard HTTP"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Stateless communication"
+        },
+        "explanation": "The benefits of browser-based clients include communication through standard HTTP protocol and no redeployment required in all clients for any changes to the application. Hence options A and C are correct. The options B and D are incorrect because both are drawbacks of browser-based clients. "
+      },
+      {
+        "-number": "49",
+        "q": "Which of the following are drawbacks of browser-based clients? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Huge traffic on server"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Secure communication through HTTP (S)"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Response dependent on network"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Stateless communication"
+        },
+        "explanation": "The drawbacks of browser-based clients include heavy traffic on server, response time dependent on network latency and stateless communication via HTTP protocol. Hence options A, C and D are correct. The option B is incorrect because it is a benefit of browser-based clients."
+      },
+      {
+        "-number": "50",
+        "q": " A Swing-based client runs with Oracle database on a different server. Which type of architecture is described? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": " 1-tier"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": " 2-tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": " 3-tier "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": " N-tier "
+        },
+        "explanation": "The described architecture is two-tier based because the business logic and presentation are on the same server and the database logic on a different server. Hence option B is correct. The other architectures do not fit the scenario described."
+      },
+      {
+        "-number": "51",
+        "q": "You wish to make the service being developed available to different clients on different platforms. Which type of architecture would you select? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Web-service centric architecture"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-centric architecture"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric architecture"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS-centric architecture"
+        },
+        "explanation": "The service should be exposed as a web service so that different platforms may access it as a client. Hence option A is correct. The other options do not address the scenario described. "
+      },
+      {
+        "-number": "52",
+        "q": "The service being developed is stateless in nature and should be exposed to multiple systems. Which type of architecture would you select? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Web-centric architecture"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Web-service centric architecture"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric architecture"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS-centric architecture"
+        },
+        "explanation": "The service should be exposed as a web service so that different systems may access and should be stateless in nature. Hence option B is correct. The other options do not address the scenario described."
+      },
+      {
+        "-number": "53",
+        "q": "The response time of a service is very critical and should address requirements like security and transactions. Which type of architecture would you select? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Web-centric architecture"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-service centric architecture "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "EJB-centric architecture"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS-centric architecture"
+        },
+        "explanation": "The local service could be written using EJBs where response time is high and addresses requirements like security and transactions. Hence option C is correct. The other options do not meet the scenario described."
+      },
+      {
+        "-number": "54",
+        "q": "You are required to develop a prototype UI project where no transactional data is present. Which type of architecture would you select? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Web-centric architecture"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-service centric architecture"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric architecture"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS-centric architecture"
+        },
+        "explanation": "The scenario described requires that web-centric architecture to be applied to the prototype UI project. Hence option A is correct. The other options are not required for the scenario."
+      },
+      {
+        "-number": "55",
+        "q": "The web layer of your application contains a search form which takes in search parameters and contacts a legacy system where search data is present. Which type of architecture would you select? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Web-centric architecture"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-service centric architecture"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric architecture"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "JMS-centric architecture"
+        },
+        "explanation": "The scenario described requires that JMS-centric synchronous architecture for the search operation. The web layer contacts the legacy system via JMS queues. Hence option D is correct. The other options are not applicable to the scenario described."
+      },
+      {
+        "-number": "56",
+        "q": "A trading station displays stock price updates. Which technology would you recommend for the application? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web services"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JMS"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": " EJB"
+        },
+        "explanation": "JMS can be used for an asynchronous architecture where a trading station displays stock price updates. Hence option C is the correct choice. Options A, B and D are incorrect because they are not suitable for a trading application."
+      },
+      {
+        "-number": "57",
+        "q": "Which technology would you recommend for insurance claim processing system? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web services"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JMS"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "explanation": "An insurance claim processing system is an example of asynchronous architecture where a workflow is involved for which JMS ismost appropriate. Hence option C is the correct choice. Other options are incorrect because they are not asynchronous."
+      },
+      {
+        "-number": "58",
+        "q": "The application being developed is in Java, but the inventory system is on .Net. Which technology would you recommend for communicating with the inventory system? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Web services"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "explanation": "A Java to non-Java system communication should be done using web services. Hence option B is the right answer. Options A, C and D are not correct choices for communication with non-EIS system."
+      },
+      {
+        "-number": "59",
+        "q": "The retail application being developed wants to communicate with the Enterprise Information Source (EIS). Which technology would you recommend for communicating with the EIS?",
+        "a": {
+          "-answer": "true",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web services"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "explanation": "For communicating with EIS, the retail application would require a JCA compliant resource adapter. Hence option A is the right answer. Options B, C and D are not correct choices for communicating with EIS"
+      },
+      {
+        "-number": "60",
+        "q": "Which of the following are benefits of JMS? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Simpler programming model"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Queues and topics can be created in the same session"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Pooling thread management"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Security implementation simplified "
+        },
+        "explanation": "The Java Messaging Service (JMS) provides a simple programming model, thread management pooling and also allows queues and topics to be created in the same transaction on the same session. Hence options A, B and C are correct. Security implementation is out of scope for JMS and is the wrong answer."
+      },
+      {
+        "-number": "61",
+        "q": "Which of the following are benefits of Web services? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Connecting heterogeneous systems"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Standard protocols"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Tightly coupled"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Low cost of communication"
+        },
+        "explanation": "The benefits of web services include connecting to heterogeneous systems using standard protocols with low cost of communication via Internet. Hence options A, B and D are right. Option C is incorrect because web services are loosely coupled."
+      },
+      {
+        "-number": "62",
+        "q": "Which of the following are benefits of JCA? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Allows bi-directional connectivity with EIS"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Formalizes packaging of integration tier"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Can be part of web tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Can be part of business tier"
+        },
+        "explanation": "J2EE Connector Architecture (JCA) allows bi-directional connectivity between EIS and enterprise application. It is part of the integration tier formalizing relationships and packaging. JCA patterns are part of integration tier and not business and web tiers. Hence options A and B are correct, and C and D are incorrect. "
+      },
+      {
+        "-number": "63",
+        "q": "Which of the following are drawbacks of JMS? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Vendor specific code may be required"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "No support for error handling"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Support for synchronous and asynchronous messages"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Support for security"
+        },
+        "explanation": "The drawbacks of JMS include no support for error handling and also vendor specific code has to be written for additional vendor features. Hence A and B are correct. Option C and D are invalid. "
+      },
+      {
+        "-number": "64",
+        "q": "Which of the following is a drawback of Web services? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Immutable interfaces"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Connect to heterogeneous systems"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "HTTP based"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "XML based"
+        },
+        "explanation": "The client would require changing the code if the web service interface requires any changes. Hence option A is the right choice. Option B is an advantage of a web service. Options C and D are characteristics of web services making them incorrect."
+      },
+      {
+        "-number": "65",
+        "q": "Which of the following are drawbacks of JCA? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Client affected when resource adapter changes"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Only synchronous communication"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "No performance comparison with alternatives"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Connectors are scalable"
+        },
+        "explanation": "A and C Explanation: JCA drawbacks are that there is no performance comparison with non-J2EE implementations. Also, when resource adapter changes, client is affected. Hence optionsA and C are correct. For Java EE 5 edition, JCA 1.5 offers both synchronous and asynchronous communication that marks option B as incorrect. Option D is an advantage of JCA which makes it incorrect. "
+      },
+      {
+        "-number": "66",
+        "q": "Your application requires lightweight web service to be called via URL. Which technology would you choose to integrate the application? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS "
+        },
+        "explanation": "JAX-RS specification is based on RESTful web service implementation which is lightweight and can be accessed via URL. Hence option B is the best answer. Option A is incorrect because it is heavyweight. Option C and D are incorrect because they are not web service technologies."
+      },
+      {
+        "-number": "67",
+        "q": "The web service you are designing needs to be transport agnostic. Which technology would you choose to design the service? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "JAX-WS "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JAXB"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAXM "
+        },
+        "explanation": "JAX-WS specification is based on SOAP web service implementation which is transport agnostic. Protocols other than HTTP like SMTP can be used with SOAP based web service. Hence option A is the correct choice. Option B JAX-RS is incorrect because it is used only with HTTP. Options C and D are not web service technologies."
+      },
+      {
+        "-number": "68",
+        "q": "The web service you are designing needs to have conversational state. Which technology would you choose to design the service? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-rs"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JAF"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JDBC "
+        },
+        "explanation": "JAX-WS specification is based on SOAP web service implementation which supports stateful operations. Contextual information and conversational state management can be incorporated with SOAP WS specification for security and transactions. Hence option A is the correct choice. Option B does not support stateful operations. Options C and D are invalid."
+      },
+      {
+        "-number": "69",
+        "q": "You require the web service to have high performance with caching. Which technology would you choose to develop the web service? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "CDI"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAX-RPC"
+        },
+        "explanation": "JAX-RS specification is based on RESTful web service implementation where performance is high with caching options because of the stateless nature. Hence option B is the right choice. Option A does not allow caching. Options C and D are not web service technologies. "
+      },
+      {
+        "-number": "70",
+        "q": "You require reliable messaging feature in the web service you are developing. Which technology would you choose to design the service? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "RPC"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JRE"
+        },
+        "explanation": "JAX-WS specification is based on SOAP web service implementation which has built-in support for error and retries mechanism. Hence option A is the correct answer. Option B does not have reliability mechanism built-in. Options C and D are not web service technologies. "
+      },
+      {
+        "-number": "71",
+        "q": "Which API is defined for interacting with heterogeneous EISs? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "CCB"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "CCI"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "CSI"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "No such API exists"
+        },
+        "explanation": "JCA defines a Common Client Interface (CCI) which is used to interact with the heterogeneous EISs. Hence option B is the correct answer. All other options are invalid. "
+      },
+      {
+        "-number": "72",
+        "q": "Which system-level software driver is used to connect to an EIS? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Common client interface "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Connection manager"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Resource adapter"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Transaction manager"
+        },
+        "explanation": "JCA enables the EIS vendor to provide a standard resource adapter which is also a system-level software driver for connecting to its EIS. Hence option C is the correct choice. All other options are not system-level driver’s hence incorrect choices."
+      },
+      {
+        "-number": "73",
+        "q": "Two fixed parties need to exchange messages. Which of the following situations address the type of pattern? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Consumer-Producers"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Consumers-Producers"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Consumer-Producer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Consumers-Producer"
+        },
+        "explanation": "Since two parties are fixed, the pattern should be Consumer-Producer which may allow a single message with a reply or multiple messages with a reply. Hence option C is the right choice. All other options are not relevant to the given situation. "
+      },
+      {
+        "-number": "74",
+        "q": " If a single service exists to support multiple clients each of which has its own reply channel, which of the following situations address the type of pattern? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Consumer-Producers"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Consumers-Producers "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Consumer-Producer"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Consumers-Producer"
+        },
+        "explanation": "Since multiple clients are consuming a single service, the pattern should be Consumers-Producer. When a request is sent on the channel, a reply tag is attached for replying to the appropriate reply channel. Hence option D is the right choice. All other options are not relevant to the given situation."
+      },
+      {
+        "-number": "75",
+        "q": " If multiple services exist to support a single client using correlation identifier, which of the following situations address the type of pattern? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Consumer-Producers"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Consumers-Producers "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Consumer-Producer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Consumers-Producer"
+        },
+        "explanation": "Since a single client consumes from multiple services, the pattern should be Consumer-Producers. When a request is sent on the channel, a correlation identifier is attached for identifying the appropriate consumer. Hence option A is the right choice. All other options are irrelevant to the given situation"
+      },
+      {
+        "-number": "76",
+        "q": "Which of the following are advantages of entity beans? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Follow a standard"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Container managed"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Portable"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Easy to design"
+        },
+        "explanation": "The advantages of entity beans include developers may follow a standard based on a specification; application servers may implement a vendor neutral interface. Container managed services like transactions, security, connection pooling and resource management are also advantages of entity beans. Entity beans are also portable to any J2EE application server with configuration changes and no code changes. Hence options A, B and C are correct answers. Option D is incorrect because design of entity beans is complex. "
+      },
+      {
+        "-number": "77",
+        "q": "Which of the following are disadvantages of entity beans? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Design complex"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "High resource usage"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Not difficult to code"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Build time longer"
+        },
+        "explanation": "The application code has to handle all the callback methods from the container making the design of entity beans complicated. The resource usage of entity beans is comparatively higher than other persistence technologies. The build time to develop an entity bean is also higher than other persistence technologies. Hence options A, B and D are correct choices. Option C is incorrect because it is an advantage of an entity bean. "
+      },
+      {
+        "-number": "78",
+        "q": "Which of the following are advantages of stateful session beans? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Maintains conversational state with client"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No pooling mechanism"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Transaction synchronization notification"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Does not scale"
+        },
+        "explanation": " A stateful session bean maintains conversational state with client. The SessionSynchronization interface provides the bean with transaction synchronization notifications. Hence options A andC are advantages of stateful session beans. Options B and D are disadvantages of stateful beans. "
+      },
+      {
+        "-number": "79",
+        "q": "Which of the following are disadvantages of stateful session beans? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Does not scale"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Maintains conversational state"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "No pooling mechanism"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Not possible to convert as a web service"
+        },
+        "explanation": "A stateful session bean is not scalable because it is not shared and every client has its own instance. Moreover, it does not have a pooling mechanism because it is stateful and hence not performing. Since the stateful session beans are stateful, it cannot be exposed as stateless web service. Hence options A, C and D are correct answers and option B is incorrect."
+      },
+      {
+        "-number": "80",
+        "q": "Which of the following are advantages of stateless session beans? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Pooling mechanism"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Scalable"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Can be exposed as a web service"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Maintains conversational state"
+        },
+        "explanation": "A stateless session bean is scalable with a pooling mechanism. It can be exposed as a web service because web service is also stateless. Hence options A, B and C are correct answers. Option D is incorrect because it is an advantage of a stateful session bean."
+      },
+      {
+        "-number": "81",
+        "q": "Which of the following are disadvantages of stateless session beans? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "No conversational state"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No pooling mechanism"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Suitable for an atomic operation"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Does not scale well"
+        },
+        "explanation": " A stateless session bean does not maintain conversational state with the client and is suitable for atomic operations. Hence options A and C are correct. A stateless bean does have a pooling mechanism and can scale well making options B and D incorrect"
+      },
+      {
+        "-number": "82",
+        "q": "Which of the following are advantages of message driven beans? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Pooling mechanism"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Asynchronous in nature"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Scalable       "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Maintains conversational state"
+        },
+        "explanation": " A and C Explanation: Message driven beans have a pooling mechanism and are scalable. Hence options A and C are correct. Option B is not the best answer because it is a property of message driven beans which makes it asynchronous. Option D is incorrect because a message driven bean is stateless in nature."
+      },
+      {
+        "-number": "83",
+        "q": "Which of the following are disadvantages of message driven beans? Answer choices: (Select 2)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "No conversational state"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Does not scale well"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Process messages from a single queue or topic"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "No pooling mechanism"
+        },
+        "explanation": "The disadvantages of message driven beans include being stateless not maintaining conversational state with client and processing messages from a single JMS destination which can be a queue or a topic. Hence options A and C are correct answers. The options B and D are incorrect because message driven beans do scale well and have a pooling mechanism. "
+      },
+      {
+        "-number": "83",
+        "q": "Which of the following are advantages of entity classes? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Can be tested without EJB container"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Support for No-SQL databases"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Support for implementing object oriented modeling features"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Data retained if system crashes "
+        },
+        "explanation": "Entity classes in JPA have support for implementing object oriented modeling techniques, data is retained if system crashes and can be tested outside of EJB container. Hence options A, C and D are correct answers. It has no support for No-SQL databases making option B incorrect."
+      },
+      {
+        "-number": "84",
+        "q": "Which of the following are disadvantages of entity classes? Answer choices: (Select 2)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "Only support for relational databases"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No support for object oriented modeling "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Slight performance overhead over an optimized SQL"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Data is removed if system crashes"
+        },
+        "explanation": "JPA Entity classes are meant for relational databases and have a slight performance overhead compared to an optimized JDBC SQL call. Hence options A and C are correct. Options B and D are incorrect because entity classes have support for object orientation and data is retained if system crashes."
+      },
+      {
+        "-number": "85",
+        "q": "Which of the following persistence strategies has the highest ease of development? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "CMP"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JPA "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "DAO"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "BMP "
+        },
+        "explanation": "CMP entity beans and JPA require developers not to write data access logic which eases development. DAO and BMP have finer access over persistence logic and take more time in development. Hence options A and B are correct, and C and D are incorrect."
+      },
+      {
+        "-number": "86",
+        "q": "Which of the following persistence strategies has the lowest ease of development? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "DAO"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "ORM"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "CMP"
+        },
+        "explanation": "The best answer is option B,which has finer control, and explicit SQL coding is required. The rest of the options have higher ease of development. "
+      },
+      {
+        "-number": "87",
+        "q": "Which of the following persistence strategies has the highest performance? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "CMP"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "DAO"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "ORM"
+        },
+        "explanation": "The best answer is option C,which has the control to code an optimized SQL logic and is suitable for bulk operations. The rest of the options are not suitable for bulk operations"
+      },
+      {
+        "-number": "88",
+        "q": "Which of the following persistence strategies has the lowest performance? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "CPM"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "DAO"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JDBC"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JDO"
+        },
+        "explanation": "The best answer is option A which has a penalty at runtime but has a shorter development time. The rest of the options require raw SQL code and hence are much better while performing."
+      },
+      {
+        "-number": "89",
+        "q": "Which of the following persistence strategies has the highest scalability? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "JPA"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "CMP"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "BMP"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "DAO"
+        },
+        "explanation": "JPA and CMP have the highest scalability compared to BMP and DAO because both operate on a managed environment and have a built-in caching mechanism. Hence options A and B are correct, and C and D are incorrect. "
+      },
+      {
+        "-number": "90",
+        "q": "Which of the following persistence strategies has the lowest scalability? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "BMP"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "CMP "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Direct JDBC"
+        },
+        "explanation": "Direct JDBC mechanism has the lowest scalability because queries are not cached. Hence option D is the best answer. Option A, BMP also has low scalability but is not the best answer. Options B and C have high scalability and hence are incorrect"
+      },
+      {
+        "-number": "91",
+        "q": "Which of the following persistence strategies has the highest extensibility? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "CMP       "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "BMP       "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JPA       "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Direct JDBC"
+        },
+        "explanation": " CMP and JPA have the highest extensibility because changes can be made easily without much impact. BMP and direct JDBC mechanism requires manual code changes and is not extensible. Hence options A and C are correct and B and D are incorrect. "
+      },
+      {
+        "-number": "92",
+        "q": "Which of the following persistence strategies has the lowest extensibility? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "BMP       "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JDO"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Direct JDBC"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JPA "
+        },
+        "explanation": "Direct JDBC and BMP have the lowest extensibility because manual coding is required for changes as compared to JDO and JPA which have higher extensibility. Hence options A and C are correct and B and D are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following persistence strategies has the highest security? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Direct JDBC"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "DAO "
+        },
+        "c": {
+          "-answer": "CMP ",
+          "#text": "JPA       "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "CMP "
+        },
+        "explanation": "JPA and CMP have built-in enterprise security which is lacking in direct JDBC and DAO mechanisms. Hence options C and D are correct andA and B are incorrect"
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following persistence strategies has the lowest security? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Direct JDBC"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "DAO       "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JPA       "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "BMP "
+        },
+        "explanation": "Direct JDBC, DAO and BMP mechanisms have no built-in security and manually security related attacks have to be handled. JPA has built-in enterprise security. Hence options A, B and D are correct, and option C is incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are implementations of a web service? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Stateful session bean"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Stateless session bean"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JAX-RPC web component"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "JAX-WS web component"
+        },
+        "explanation": "B, C and D Explanation: The web service can be implemented using a stateless session bean or a JAX-RPC implementation or a JAX-WS implementation. Hence options B, C and D are correct answers. Option A is incorrect because a web service is stateless."
+      },
+      {
+        "-number": "0",
+        "q": "What are the advantages of implementing web services using Java EE? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Heterogeneous system integration "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "High performing"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Deploy web service to Java EE application server"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Leverage existing Java EE technology"
+        },
+        "explanation": "The advantages of implementing web services using Java EE technology are that the service can be deployed to a Java EE application server leveraging existing technologies and also integrate heterogeneous systems. There is a performance penalty on implementing such a web service. Hence options A, C and D are correct, and B is incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "What are the drawbacks of implementing web services using Java EE? Answer choices: (Select 2)",
+        "a": {
+          "-answer": "true",
+          "#text": "Stateless"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Performance penalty"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Deploy on any Java EE application server"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Integrate heterogeneous systems"
+        },
+        "explanation": "A web service is stateless and does not maintain conversational state with client. There is a performance penalty for implementing a web service. Hence options A and B are correct. The options C and D are incorrect because both are advantages of web services using Java EE."
+      },
+      {
+        "-number": "0",
+        "q": "You are designing to consume an existing web service. Which of the following should you keep in mind? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Service implementation may be hidden from client developers"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Client applications may reside in a Java EE container"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client applications can only be built on Java"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Support for J2ME clients is available"
+        },
+        "explanation": "A, B and D Explanation: When designing to consume an existing web service, client developers need not be aware of the service implementation. Client applications may reside in a Java EE container like EJB using a web service and may be built in other programming languages apart from Java. Also support for J2ME clients is available defined by JSR 172. Hence options A, B and D are correct, and C is incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "You are designing a new web service. Which of the following should you keep in mind? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Client need not be aware if the web service is deployed on a Java EE or non-Java EE environment "
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "WSDL may be published to the service registry"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Client should be aware how the service is realized"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "The service implementation should not compromise the integrity of the Java EE application server "
+        },
+        "explanation": "A new web service requires that the client need not be aware if the service is deployed on a Java EE or non-Java EE environment. The WSDL may be published to the service registry. Clients should not be aware of how the service is realized, and the implementation should not compromise the integrity of the application server. Hence options A, B and D are correct, but C is incorrect. OBJECTIVE: Explain the benefits of the EJB 3 development model over previous EJB generations for ease of development including how the EJB container simplifies EJB development."
+      },
+      {
+        "-number": "0",
+        "q": "You are implementing EJB in the business tier and plan to reduce the number of classes and interfaces. You want to simplify POJO based development and eliminate the need for a deployment descriptor. Which EJB version will you use? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "3  "
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "2"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "1"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "No EJB"
+        },
+        "explanation": "false"
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following beans have interceptor facility in EJB 3? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Session beans"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Entity beans"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Message driven beans"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Persistence beans"
+        },
+        "explanation": "Session beans and message driven beans have a new feature of interceptors in EJB 3 which is not available in older versions of EJB. Hence options A and C are correct and B and D are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are new in EJB 3? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "No need for checked exceptions "
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "No interface required"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "No need for callback interfaces"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Home class required"
+        },
+        "explanation": "The new features of EJB 3 include the elimination of interfaces, checked exceptions and callback interfaces. Hence options A, B and C are correct. Option D is incorrect because home class is invalid. "
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are new in JPA? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Support for inheritance and polymorphism"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "XML mappers required"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Annotations replace XML mappers"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "No interfaces for persistence entities"
+        },
+        "explanation": "The new Java Persistence API (JPA) has support for modeling including inheritance and polymorphism. Annotations replace usage of long XML mapping files and no interfaces required for persistence entities. Hence options A, C and D are correct. Option B is incorrect because XML mappers are no longer required."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are benefits of adopting a web framework? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Automate session management"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Enables UI templating"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Disable code reuse"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Disable security"
+        },
+        "explanation": "Web frameworks help in implementing features such as action handlers, validators, transactions, security, automate session management and enables UI templates. It does promote code reuse and does not disable security. Hence options A and B are correct, and C and D are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are drawbacks of using a web framework? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Skills upgrade may be at a cost"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Choosing between many choices is difficult"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Performance is better"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Clear direction to choose a framework"
+        },
+        "explanation": "he drawbacks of adopting a web framework include costly skill upgrade. Hence choosing between several web frameworks is difficult. There is a performance overhead and there is no clear direction in choosing a web framework. Sometimes a web framework may be overkill, and it may not be required. Hence options A and B are correct, and C and D are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "You have to support both mobile phones and browser clients in the application being developed. Which technology would you choose? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JSP"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JSP with EL"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JSF"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JSP with JSTL"
+        },
+        "explanation": "A JSF-based architecture is preferred because the renderers support both mobile devices and browser clients. Hence option C is correct. The other options are invalid. "
+      },
+      {
+        "-number": "0",
+        "q": "You have to access the existing inventory system using web services. Which type of architecture will you suggest? Answer choices: (Select best answer)  ",
+        "a": {
+          "-answer": "false",
+          "#text": "JSP with stateless session beans"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JSF with stateless session beans"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JSF with JAX-WS "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JSF with JMS "
+        },
+        "explanation": ": A stateless session bean may not be required in the current context and JMS may not be required to access the web services. The best answer is option C, which uses JSF with JAX-WS technology to access the web service. The other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "You have an existing application written using an earlier version of JEE platform. The client wishes to improve the maintainability of the application. Which strategy would you suggest? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Rewrite using JSF, EJB and JPA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Rewrite using JSP, EJB and JPA "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Apply best practices on existing application"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Rewrite using JSF, JMS, EJB and JPA"
+        },
+        "explanation": "Since the client wishes to improve the maintainability of the application, the best practices should be applied and the application needs to be re-factored. The other options for rewrite may not be a suitable choice considering the cost and effort. Hence option C is correct, and the other options are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "You are convincing the client that JSP technology can be hosted on any platform, run on any web server or a Java EE application server and accessed from any web browser. Which benefit of JSP is being talked about? Answer choices: (Select best answer)  ",
+        "a": {
+          "-answer": "false",
+          "#text": "Tool support"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Write once, run anywhere"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Tag library reuse"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Separation of web developer and web designer roles "
+        },
+        "explanation": "Write once, run anywhere feature of Java is applied to JSP technology as well because components can be written on any platform, run on any Java EE server and accessed from any browser. Hence option B is correct. The other choices are benefits of JSP but not relevant to the question."
+      },
+      {
+        "-number": "0",
+        "q": "You want to emphasize on the use of JSP technology as the choice of presentation tier technology. Which of the following benefits will you highlight? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Support for expressions, scripting and actions"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Always the choice for front-end technology"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Separation of dynamic and static content "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Reuse of components and tag libraries"
+        },
+        "explanation": "JSP benefits include support for expressions, scripting and actions. It lets you separate dynamic and static content. Also, one can reuse components and tag libraries speeding up development effort. Hence options A, C and D are correct. JSP technology is not always the choice for front-end technology making option B incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "You are making a note of the available options when a JSP page is compiled. Which of the following options will you note? Answer choices: (Select 2)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "On first request"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "On every request"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": " At deployment time"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "During server startup"
+        },
+        "explanation": "JSP pages are compiled during deployment or when a first request arrives. Hence options A and C are correct. JSP page is not compiled on every request or during server startup making options B and D incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "You are in a meeting where discussion is based on the use of tag libraries. Which of the following points will you make? Answer choices: (Select 3)  ",
+        "a": {
+          "-answer": "true",
+          "#text": "Custom actions"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Static content"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Listener classes"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Validation"
+        },
+        "explanation": " Tag libraries deliver custom actions, listener classes and validation. Static content may not be provided by tag libraries. Hence options A, C and D are correct, and B is incorrect"
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following technologies are competitive technologies of Java Servlet technology? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "CGI"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JSP"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Netscape Server API"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Apache Modules"
+        },
+        "explanation": "Common Gateway Interface (CGI), Netscape Server API (NSAPI) and Apache Modules, are competitive technologies of Java Servlet technology. Hence options A, C and D are correct. Option B is incorrect because JSP is an alternate technology."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following Servlet lifecycle methods are executed once? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "init"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "service"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "destroy "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "doGet"
+        },
+        "explanation": "The Java Servlet lifecycle methods init and destroy are executed once in the lifecycle. Hence options A and C are correct. The options B and D are incorrect because it is not executed once. "
+      },
+      {
+        "-number": "0",
+        "q": "Your application design requires a pool of servlet instances. Which interface should you inherit to force this property? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "SingleThreadModel"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "MultipleThreadModel"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "No interface"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "SingleProcessModel"
+        },
+        "explanation": "Java Servlets implement the SingleThreadModel interface which guarantees there is one thread at a time executing the service method. Servlet containers may maintain a pool of servlet instances. Hence option A is correct. The other options are invalid."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are exceptions thrown by a Servlet? Answer choices: (Select 2) ",
+        "a": {
+          "-answer": "true",
+          "#text": "ServletException"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "UnavailableException"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "ServletUnavailableException"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "ServletError"
+        },
+        "explanation": "A Servlet may throw either ServletException or UnavailableException when the service method is executed. Hence options A and B are correct. The other options C and D are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are session tracking mechanisms? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Cookies"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "URL rewriting"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "HTTPSession"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Form fields"
+        },
+        "explanation": "Session tracking mechanisms include cookies, URL rewriting and HTTP session which makes options A, B and C valid choices. The option D is incorrect because form fields are not used to track sessions. "
+      },
+      {
+        "-number": "0",
+        "q": "You are discussing the key features of JSF with your team. Which points will you highlight? Answer choices: (Select 3) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Reuse existing UI components"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Manages UI state across requests"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Custom UI components difficult to build"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Easy development of custom UI components"
+        },
+        "explanation": "The key features of JSF include the ability to reuse existing UI components, maintain UI state across requests and easily developed custom UI components. Hence options A, B and D are correct answers. Option C is incorrect because custom UI components are not difficult to build. "
+      },
+      {
+        "-number": "0",
+        "q": "You are negotiating with the client about the challenges associated with the web applications and how JSF addresses those challenges. Which points will you discuss? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Support form processing"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Validation"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "No event model"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Error handling"
+        },
+        "explanation": "JSF has support for form processing, validation and error handling. It also has a strongly typed event model. Hence options A, B and D are correct, and option C is incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "You are discussing the roles that a JSF developer plays. Which of the following roles are valid? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Page author"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Application architect"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Component writer"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Tool provider"
+        },
+        "explanation": "The roles played by a JSF developer include a page author, component writer, application developer, tool provider and implementer. Hence options A, C and D are correct, and option B is incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are different scenarios that occur in a JSF application? Answer choices: (Select 3)",
+        "a": {
+          "-answer": "true",
+          "#text": "Non-faces request generates faces response"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Faces request generates faces response"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Faces request generates non-faces response"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Non-faces request generates non-faces response"
+        },
+        "explanation": "he different scenarios that may occur in a JSF application include a faces and non-faces request generating a faces response and faces request generating a non-faces response. Hence options A, B and C are correct, and option D is incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle builds the view of the page, wires event handlers and validators? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Restore view"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Apply request values"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Invoke application"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Render response"
+        },
+        "explanation": "he restore view phase is the first phase of the JSF lifecycle which builds the view of the phase, wires event handlers and validators, and saves the view in the FacesContext instance which contains all information needed to process a single request. Hence option A is the correct choice. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle uses the decode method to extract new value from the request parameters? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Restore view"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Apply request values"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Invoke application"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Render response"
+        },
+        "explanation": "he apply request values phase is the second phase in the JSF lifecycle where the decode method is used to extract the new value of the component from the request parameters. Hence option B is correct. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle processes all validators registered in the component tree? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Restore view"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Apply request values"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Process validations"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Render response"
+        },
+        "explanation": "The process validations phase processes all validators in the component tree. It examines the component attributes that specify the rules for the validation and adds error messages if the local value is invalid. Hence option C is correct. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle walks the component tree and sets the corresponding server-side properties to local value? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Update model values"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Apply request values"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Process validations"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Render response"
+        },
+        "explanation": "The update model values phase traverses the component tree and sets the server-side object properties to local value of the component. It only updates the bean properties pointed by input components value attribute. Hence option A is correct. All other options are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle handles application-level events? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Update model values"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Invoke applications"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Process validations"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Render response"
+        },
+        "explanation": "The invoke applications phase handles application-level events. Hence option B is correct. All other options are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "Which phase of JSF life cycle renders the page? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Update model values"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Invoke applications"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Process validations"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Render response"
+        },
+        "explanation": "The render response phase is responsible for rendering the page. The components will render as the JSP container traverses the tags in the page. Hence option D is correct. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "a": { "-answer": "false" },
+        "b": { "-answer": "false" },
+        "c": { "-answer": "false" },
+        "d": { "-answer": "true" }
+      },
+      {
+        "-number": "0",
+        "q": "A large retail customer has a requirement for a complex transaction processing system with existing system integration. As an architect, what would you recommend? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "EJB-centric system with no external system"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-centric system with external system "
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "EJB-centric system with external system"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Web-centric system with no external system"
+        },
+        "explanation": "EJB-centric systems are candidates where transaction processing is required. The existing external system will need to be integrated using Java EE technology. Hence the option C is the right answer. All other options are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "You are the architect of a small B2C website where ease of development is the primary concern. Which type of architecture would you recommend? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "EJB-centric system with no external system"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-centric system with external system"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric system with external system"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Web-centric system with no external system "
+        },
+        "explanation": "When ease of development is the primary concern and a small B2C site needs to be developed, a Web-centric architecture is recommended. Hence option D is correct. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": " A banking system requires role based security for the mortgage website. Which type of architecture would you recommend? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "EJB-centric system with no external system"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-centric system with external system"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric system with external system"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Web-centric system with no external system"
+        },
+        "explanation": "A Explanation: EJB-centric systems can successfully satisfy the requirement of role-based security. Here, no external system integration is required unless explicitly specified. Hence option A is correct. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "The development team does not have EJB skills. The website you are developing requires integration with an inventory system. Which type of architecture would you recommend? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "EJB-centric system with no external system"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Web-centric system with external system "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric system with external system"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Web-centric system with no external system"
+        },
+        "explanation": "One of the primary concerns making a technology decision is to check the skills of the development team. If the development team does not have EJB skills, it is recommended to use a Web-centric architecture. The architecture can be integrated with an inventory system. Hence option B is the correct answer. All other options are incorrect."
+      },
+      {
+        "-number": "0",
+        "q": "A back office system is required to update the details in a banking system. Which type of architecture would you recommend? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "EJB-centric system with no external system"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Web-centric system with external system"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EJB-centric system with external system"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Web-centric system with no external system"
+        },
+        "explanation": "The requirement is to update the details in the banking system via MDBs. Hence option A is the correct choice. The other options do not address the question"
+      },
+      {
+        "-number": "0",
+        "q": "You have created a service in Java which you wish to expose as a web service using SOAP and XML as a transport mechanism. Which technology is required for marshaling the Java class to XML document? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAXP"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JAXB"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAXF"
+        },
+        "explanation": "The JAXB technology binds Java classes to generate XML schema for applications which wish to expose Java-based services as web services. Hence option C is the right answer. Option A, JAX-WS uses JAXB technology. Options B and D are invalid."
+      },
+      {
+        "-number": "0",
+        "q": "Your application is required to consume SOAP messages with attachments. Which technology will you use for coding the client? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JAXB"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JAXM"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JAXP"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAF"
+        },
+        "explanation": "JAXM is a lightweight messaging API for development of XML based messages. JAXM providers support SOAP messages as well as attachments. Hence option B is the correct answer. OptionsA and B are not related to attachments. Option D is invalid."
+      },
+      {
+        "-number": "0",
+        "q": "Your application requires control over parsing XML using a simple iterator based pull parsing API. Which API should you use? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "StAX"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAXP"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JAXB"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAXM"
+        },
+        "explanation": "The Streaming API for XML (StAX) gives more control for pull parsing XML using an iterator based API. Hence option A is correct. The other options do not provide a pull parsing API for XML."
+      },
+      {
+        "-number": "0",
+        "q": "You require a system which can broadcast an enterprise message to many destinations. Which technology will you use? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "JMS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "EMS"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "explanation": "The Java Messaging Service (JMS) provides an interface to broadcast a message to many destinations. It requires a service provider that implements point-to-point and publish-subscribe messaging. Hence option A is the correct choice. All other options do not support this implementation."
+      },
+      {
+        "-number": "0",
+        "q": "You have a requirement to send mails in different formats, data types using different access and transport protocols. Which technology is suited to implement the feature? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JavaMail"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "MMS"
+        },
+        "explanation": "The JavaMail API uses features of Java programming language to implement applications which can send mails in different formats and data types using different access and transport protocols. Hence option C is the right answer. The other options do not support mails. Option D is invalid."
+      },
+      {
+        "-number": "0",
+        "q": "You are developing an application that shows the file system. On selecting a file, the operations on the file are shown and on choosing the operation, it is executed. Which technology will you use? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JAF"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JavaBean"
+        },
+        "explanation": "JavaBean Activation Framework (JAF) can be used to develop an application listing the file system which presents a command list for the selected file and performs the command on the chosen file. Hence option B is the correct answer. The other options are incorrect. "
+      },
+      {
+        "-number": "0",
+        "q": "You wish to enable enterprise application integration by establishing a bidirectional connectivity between your application and the legacy system. Which technology should you use?Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JTA"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JDBC"
+        },
+        "explanation": "Java Connector Architecture (JCA) defines standard contracts that allow bi-directional connectivity between applications and enterprise information systems. Hence option A is the correct answer. All other options are not related to integration."
+      },
+      {
+        "-number": "0",
+        "q": "You have built a domain model for the application being developed. You want to make sure the application can be deployed on different databases with ease. Which technology should you use? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JTA"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "JPA"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "explanation": "Java Persistence API (JPA) can be used to map the domain model to a relational database. Databases can be changed easily with configuration changes not necessarily codes will be changed. Hence option C is the right answer. The other options are not related to database."
+      },
+      {
+        "-number": "0",
+        "q": "In a web-centric Java EE solution, you are facing a problem of handling transactions at the web tier. Which technology should solve the issue? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "JTA"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JPA"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "explanation": "In a web-centric solution no enterprise beans are present to handle transactions. Java Transaction API (JTA) can be used to manage the transactions from web tier. Hence option B is the right choice. The other options do not manage transactions. "
+      },
+      {
+        "-number": "0",
+        "q": "You wish to monitor the JVM remotely. Which technology would you select? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "JCA"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JTA"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JMS"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "JMX"
+        },
+        "explanation": "Java Management Extensions (JMX) can be used to monitor a remote JVM. Hence option D is correct. The other options do not have monitoring facility. "
+      },
+      {
+        "-number": "0",
+        "q": "Which technology has been introduced to support enterprise service bus? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "JAX-RPC"
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "JBI"
+        },
+        "explanation": "Java Business Integration (JBI) attempts to extend Java technologies with business integration service provider interfaces. Hence option D is the correct answer. Options A, B and C are not related to enterprise service bus. "
+      },
+      {
+        "-number": "0",
+        "q": "The Order service consists of processing of order, payment and view order services. Which service feature is followed? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "true",
+          "#text": "Composition"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Transaction "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Orchestration"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Proxy"
+        },
+        "explanation": "Composite service Order consists of processing, payment and view. Hence option A is the correct choice. All other options are not related to composition."
+      },
+      {
+        "-number": "0",
+        "q": "At any instant of time, the view balance service should be reliable devoid of execution time of deposit and withdrawal services. Which service feature is followed? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Composition "
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Transaction"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Orchestration"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Proxy"
+        },
+        "explanation": "Transaction should be consistent and the balance should reflect the correct information. Hence option B is the right answer. Other options do not apply. "
+      },
+      {
+        "-number": "0",
+        "a": { "-answer": "false" },
+        "b": { "-answer": "false" },
+        "c": { "-answer": "false" },
+        "d": { "-answer": "true" }
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following are service repositories? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Service explorer"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-WS"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "UDDI"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "explanation": "Universal description, discovery and integration (UDDI) are an XML-based registry to find on the Internet. Hence UDDI is a service repository which is the correct answer. All other options are invalid."
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following specifications are related to service orchestration? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "WS-Orchestration"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "JAX-RS"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "WS-BPEL"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "WS-Transaction"
+        },
+        "explanation": "Web Services Business Process Execution Language (WS-BPEL) specification deals with orchestration used to indicate the business process or workflow of an enterprise. Hence option C is the right answer. All other options are invalid."
+      },
+      {
+        "-number": "0",
+        "q": "You are analyzing an application containing Java classes as a service. Which strategy do you recommend for performance improvement? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Keep service as POJOs"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Introduce stateless session beans "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Introduce stateful session beans "
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Introduce service pooling"
+        },
+        "explanation": "Stateless session beans have pooling mechanism which improves the performance of the application with in-built support for transactions and security. Hence option B is the correct answer. All other options do not improve the performance with ease."
+      },
+      {
+        "-number": "0",
+        "q": "You are trying to improve the performance of a data driven application which connects to the database using JDBC connection mechanism. Which strategy will you apply to improve the performance? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Keep individual connections for every request"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Use connection pooling mechanism"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Create your own pooling mechanism"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Use multi-threaded connections"
+        },
+        "explanation": "Database connection initializations are very costly and require pooling mechanism to improve the performance. Hence option B is the best answer. All other options may not improve the performance with little effort. "
+      },
+      {
+        "-number": "0",
+        "q": "You are analyzing a web-centric application which uses servlet single thread model. What would you recommend to improve the performance? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Continue with single thread model"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Use multi thread model"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Do not use static variables"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Use final variables "
+        },
+        "explanation": "Using a single thread model reduces performance and should be avoided. Hence using a multi-thread model improves performance and is the best answer. All other options do not improve the performance directly. "
+      },
+      {
+        "-number": "0",
+        "q": "Which of the following is single point of failure and may affect availability? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Clustered application"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Clustered database"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Load balancer"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Clustered external system"
+        },
+        "explanation": "The load balancer should be duplicated to avoid single point of failure which may affect availability. Hence option C is the correct choice. The other options are not single point of failures."
+      },
+      {
+        "-number": "0",
+        "q": "The database has a single instance. Will it affect availability? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Yes because it is single point of failure"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No a backup database always exists"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "No a database always has multiple instancesRead"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Not always"
+        },
+        "explanation": "The database having a single instance is a single point of failure and may affect availability. Hence option A is the correct answer. Options B, C and D are not correct because availability is affected."
+      },
+      {
+        "-number": "0",
+        "q": "The application is not deployed on a cluster. Will it affect availability? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "No because backup server exists"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Yes because it is single point of failure "
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "No because an application has multiple instances"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Always "
+        },
+        "explanation": "A single instance of an application affects availability because it is single point of failure. High availability applications should be clustered. Hence option B is correct answer. Options A, C and D are not correct because availability is affected. "
+      },
+      {
+        "-number": "0",
+        "q": "With regards to extensibility, the application should be flexible to support transactions on an existing POJO service. Which strategy would you apply to support extensibility? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Introduce JTA mechanism"
+        },
+        "b": {
+          "-answer": "true",
+          "#text": "Introduce EJB container managed transaction support"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Introduce EJB bean managed transaction support"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Introduce JTS mechanism"
+        },
+        "explanation": "The POJO service can be converted to an EJB using container managed transaction support mechanism. Hence option B is the best answer. Options A, C and D are not the best answers. "
+      },
+      {
+        "-number": "0",
+        "q": "With regards to extensibility, the application should be flexible to support security on an existing POJO service. Which strategy would you apply to support extensibility? Answer choices: (Select best answer) ",
+        "a": {
+          "-answer": "false",
+          "#text": "Introduce Web declarative security"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Introduce EJB programmatic security"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "Introduce Web programmatic security "
+        },
+        "d": {
+          "-answer": "true",
+          "#text": "Introduce EJB declarative security"
+        },
+        "explanation": "The POJO service can be converted to an EJB using declarative security. Since the POJO is a service, Web security need not be considered. Hence option D is the best answer. Options A, C and D are not correct."
+      },
+      {
+        "-number": "0",
+        "q": "Can you scale the application without remoting? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "true",
+          "#text": "Yes using collocated architecture"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "No only remote EJBs scale"
+        },
+        "c": {
+          "-answer": "false",
+          "#text": "No POJOs scale most"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Only remoting scale well"
+        },
+        "explanation": "Collocated architecture may be used without the use of remote EJBs which can also scale. Scalability can only be achieved using remote EJBs is not a true statement always. Hence option A is the correct answer. All other options are not the best answer in this context."
+      },
+      {
+        "-number": "0",
+        "q": "With regards to extensibility, the application should be flexible to integrate with other systems. Which strategy would you apply to support extensibility? Answer choices: (Select best answer)",
+        "a": {
+          "-answer": "false",
+          "#text": "Integrate at the web tier"
+        },
+        "b": {
+          "-answer": "false",
+          "#text": "Integrate at the business tier"
+        },
+        "c": {
+          "-answer": "true",
+          "#text": "Integrate at the integration tier"
+        },
+        "d": {
+          "-answer": "false",
+          "#text": "Integrate at the resource tier"
+        },
+        "explanation": "The integration with other external systems can be addressed at the integration tier to support extensibility using suitable patterns and technologies. Hence option C is the correct choice. All other options are invalid."
+      }
+	  ,
+	  {
+        "-number": "0",
+        "q": "placeholder",
+        "a": {
+          "-answer": "false",
+          "#text": ""
+        },
+        "b": {
+          "-answer": "false",
+          "#text": ""
+        },
+        "c": {
+          "-answer": "true",
+          "#text": ""
+        },
+        "d": {
+          "-answer": "false",
+          "#text": ""
+        },
+        "explanation": ""
+      }
+    ]
+  }
+}
