@@ -3,6 +3,21 @@ quiz.data;
 quiz.correct;
 quiz.answered;
 quiz.currentQuestion={};
+quiz.ajaxSettings={
+        method  : 'get',
+        url     : '/quiz/JavaScript-Quiz/questions.xml',
+        timeout : 3000,
+        success : quiz.parseXml,
+				error   : errorHandler,
+				complete: completeHandler
+			};
+function errorHandler(err){
+    console.log(err);
+}
+
+function completeHandler(){
+    console.log('AJAX call is complete');
+}
 quiz.init = function(){
 
 	console.log("init ");
@@ -10,12 +25,16 @@ quiz.init = function(){
 	quiz.answered=1;
 	$("#answerdQuestion").text('Question:'+quiz.answered);
 	$.getJSON( "questions.json", quiz.populateData);
-	$.ajax({
+/*	$.ajax({
     type: "GET",
     url: "questions.xml",
     dataType: "xml",
     success: quiz.parseXml
-   });
+	});*/
+	//set AJAX defaults
+  $.ajaxSetup(quiz.ajaxSettings);
+  //make AJAX call
+  $.ajax();
  }
 quiz.getXml= function(data){
 	console.log(data);
@@ -24,6 +43,7 @@ quiz.getXml= function(data){
 quiz.parseXml= function(xml){
 	//create array questions
 	var questions = [];
+	console.log("parseXml");
 	console.log(xml);
 	console.log($(xml).find('question').each().text());
 /*	var question = $(xml).find('question')
