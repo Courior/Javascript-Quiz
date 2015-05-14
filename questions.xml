@@ -2,26 +2,26 @@
 <questions>
 <question number="0">
   <text></text>
-  <a answer='false'></a>
-  <b answer='false'></b>
-  <c answer='false'></c>
-  <d answer='true'></d>
+  <answer result='false'></a>
+  <answer result='false'></b>
+  <answer result='false'></c>
+  <answer result='true'></d>
  <explanation></explanation>
 </question>
 <question number="1">
   <text>A class DynamicArray implementing an extendable array of objects has a method insertElementAt which inserts elements at specified index. The class Queue allows insert operations at the rear. If class Queue inherits class DynamicArray, which design principle is violated?</text>
-  <a answer='false'>Single responsibility principle</a>
-  <b answer='false'>Dependency inversion principle</b>
-  <c answer='false'>Open closed principle</c>
-  <d answer='true'>Liskov substitution principle</d>
+  <answer result='false'>Single responsibility principle</a>
+  <answer result='false'>Dependency inversion principle</b>
+  <answer result='false'>Open closed principle</c>
+  <answer result='true'>Liskov substitution principle</d>
   <explanation>Option D Liskov Substitution Principle is the correct answer. Class DynamicArray having a method to insert an element at a specified index cannot be inherited by class Queue, which only allows elements to be inserted at the rear. In other words, a Queue is not a DynamicArray which violates the principle. The other options are invalid.</explanation>
 </question>
 <question number="2">
   <text>A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
-  <a answer='true'>Single responsibility principle</a>
-  <b answer='false'>Dependency inversion principle</b>
-  <c answer='false'>Open closed principle</c>
-  <d answer='false'>Liskov substitution principle</d>
+  <answer result='true'>Single responsibility principle</a>
+  <answer result='false'>Dependency inversion principle</b>
+  <answer result='false'>Open closed principle</c>
+  <answer result='false'>Liskov substitution principle</d>
  <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
 </question>
 
