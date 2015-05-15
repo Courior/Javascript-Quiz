@@ -1,150 +1,156 @@
-var quiz = {};//all variables will be contained within this array. This will stop the global namespace from being polluted.
-quiz.data;
-quiz.correct;
-quiz.answered;
-quiz.currentQuestion={};
-quiz.ajaxSettings={
-        method  : 'get',
-        url     : '/quiz/JavaScript-Quiz/questions.xml',
-        timeout : 3000,
-        success : quiz.parseXml,
-				error   : errorHandler,
-				complete: completeHandler
-			};
-function errorHandler(err){
-    console.log(err);
-}
+var Quiz = function () {
+  this.data = undefined;
+  this.correct = undefined;
+  this.answered = undefined;
+  this.currentQuestion = {};
+  this.ajaxSettings= {
+    method  : 'get',
+    url     : './questions.xml',
+    timeout : 3000,
+    success : this.parseXml,
+		error   : this.errorHandler,
+		complete: this.completeHandler
+	};
 
-function completeHandler(){
-    console.log('AJAX call is complete');
-}
-quiz.init = function(){
 
-	console.log("init ");
-	quiz.correct=0;
-	quiz.answered=1;
-	$("#answerdQuestion").text('Question:'+quiz.answered);
-	$.getJSON( "questions.json", quiz.populateData);
-/*	$.ajax({
-    type: "GET",
-    url: "questions.xml",
-    dataType: "xml",
-    success: quiz.parseXml
-	});*/
-	//set AJAX defaults
-  $.ajaxSetup(quiz.ajaxSettings);
-  //make AJAX call
-  $.ajax();
- }
-quiz.getXml= function(data){
-	console.log(data);
-	console.log($(data).find('question[number="1"]').text());
- }
-quiz.parseXml= function(xml){
-	//create array questions
-	var questions = [];
-	console.log("parseXml");
-	console.log(xml);
-	console.log($(xml).find('question').each().text());
-/*	var question = $(xml).find('question')
-	.each(function(question){
-		console.log(question);
-		//add each question to data json
-		//add each text to question
-		console.log($(question).find('text').text());
-		//add each explanaion to question
-		console.log($(question).find('explanation').text());
+  	console.log("init ");
+  	this.correct=0;
+  	this.answered=1;
+  	$("#answerdQuestion").text('Question:'+this.answered);
+  //	$.getJSON( "questions.json", this.populateData);
+  /*	$.ajax({
+      type: "GET",
+      url: "questions.xml",
+      dataType: "xml",
+      success: this.parseXml
+  	});*/
+    //make AJAX call
+    $.ajax(this.ajaxSettings);
 
-		//add each answer to question
+};
 
-	})*/
-	//add each question to array
-}
- quiz.populateData= function(data){
+Quiz.prototype = {
+  parseXml: function(xml){
+  	//create array questions
+  	var questions = [];
+  	console.log("parseXml");
+  	console.log(xml);
+  	//console.log($(xml).find('question').each().text());
+  /*	var question = $(xml).find('question')
+  	.each(function(question){
+  		console.log(question);
+  		//add each question to data json
+  		//add each text to question
+  		console.log($(question).find('text').text());
+  		//add each explanaion to question
+  		console.log($(question).find('explanation').text());
+
+  		//add each answer to question
+
+  	})*/
+  	//add each question to array
+  },
+  errorHandler: function(err){
+      console.log(err);
+  },
+
+  completeHandler: function (){
+      console.log('AJAX call is complete');
+  },
+  getXml: function(data){
+  	console.log(data);
+  	console.log($(data).find('question[number="1"]').text());
+  },
+
+  populateData: function(data){
 		// take data in report and output it to the report table
-		quiz.data = data;
-		$q = quiz.data.questions.question[1];
+		this.data = data;
+		$q = this.data.questions.question[1];
 		console.log($q);
-		quiz.outputRandomQuestion();
-	}
-quiz.outputRandomQuestion= function(){
-	$("#nav").empty();
-	console.log('Length='+quiz.data.questions.question.length);
-	var number = Math.floor((Math.random() * quiz.data.questions.question.length-1)+1);
-	console.log('Random Number='+number);
-	quiz.currentQuestion= quiz.data.questions.question[number];
-	console.log(quiz.data.questions.question[number]);
-	$("#question").text(quiz.currentQuestion.q);
-	$("#explain").text(quiz.currentQuestion.ex);
-	//$("#explain").css("visibility","hidden");
-	$("#aCheck").val(quiz.currentQuestion.a['-answer']);
-	$("#bCheck").val(quiz.currentQuestion.b['-answer']);
-	$("#cCheck").val(quiz.currentQuestion.c['-answer']);
-	$("#dCheck").val(quiz.currentQuestion.d['-answer']);
-	$("#aLabel").text(quiz.currentQuestion.a['#text']);
-	$("#bLabel").text(quiz.currentQuestion.b['#text']);
-	$("#cLabel").text(quiz.currentQuestion.c['#text']);
-	$("#dLabel").text(quiz.currentQuestion.d['#text']);
-	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
-	if(quiz.data.questions.question.length>2)
-		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
-	else
-		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next',disabled:'disabled'});
-	$("#nav").append($answer);
-	$("#nav").append($next);
-	$answer.on("click",quiz.answer);
-	$next.on("click",quiz.nextQuestion);
-	quiz.data.questions.question.splice(number,1);
-}
+		this.outputRandomQuestion();
+	},
+  outputRandomQuestion: function(){
+  	$("#nav").empty();
+  	console.log('Length='+this.data.questions.question.length);
+  	var number = Math.floor((Math.random() * this.data.questions.question.length-1)+1);
+  	console.log('Random Number='+number);
+  	this.currentQuestion= this.data.questions.question[number];
+  	console.log(this.data.questions.question[number]);
+  	$("#question").text(this.currentQuestion.q);
+  	$("#explain").text(this.currentQuestion.ex);
+  	//$("#explain").css("visibility","hidden");
+  	$("#aCheck").val(this.currentQuestion.a['-answer']);
+  	$("#bCheck").val(this.currentQuestion.b['-answer']);
+  	$("#cCheck").val(this.currentQuestion.c['-answer']);
+  	$("#dCheck").val(this.currentQuestion.d['-answer']);
+  	$("#aLabel").text(this.currentQuestion.a['#text']);
+  	$("#bLabel").text(this.currentQuestion.b['#text']);
+  	$("#cLabel").text(this.currentQuestion.c['#text']);
+  	$("#dLabel").text(this.currentQuestion.d['#text']);
+  	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
+  	if(this.data.questions.question.length>2)
+  		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
+  	else
+  		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next',disabled:'disabled'});
+  	$("#nav").append($answer);
+  	$("#nav").append($next);
+  	$answer.on("click",this.answer);
+  	$next.on("click",this.nextQuestion);
+  	this.data.questions.question.splice(number,1);
+  },
 
-quiz.nextQuestion= function(){
-	quiz.answered=quiz.answered+1;
-	//needs to be changed
-	$("#quiz").attr("class", "unanseredQuiz");
-	$("#answerdQuestion").text('Question:'+quiz.answered);
-	$(".correct").removeClass("correct");
-	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
-
-
-	quiz.outputRandomQuestion();
-}
-quiz.answer = function(){
-	$("#aCheck").css("color","blue");
-	$("#alert").text('');
-	var checkedValues =[];
-	checkedValues = $('input:checkbox:checked').map(function() {
-		return this.value;
-	}).get();
+  nextQuestion: function(){
+  	this.answered=this.answered+1;
+  	//needs to be changed
+  	$("#quiz").attr("class", "unanseredQuiz");
+  	$("#answerdQuestion").text('Question:'+this.answered);
+  	$(".correct").removeClass("correct");
+  	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
 
 
-		console.log(checkedValues.length);
-	if (checkedValues.length != 0) {
-		//need to be changed
-		$("#quiz").attr("class", "anseredQuiz");
-	//$("#explain").css("visibility","visible");
-	console.log('here');
-	//use current question json data to get correct answer and mark it so
-	$('input:checkbox').each(function() {
-	console.log('hereq');
-	//needs to be changed
-		if(this.value==='false'){
-			//$(this).parent().css( "background-color", "red" );
-		}
-		else{
-			$(this).parent().addClass("correct");
-		}
-	});
+  	this.outputRandomQuestion();
+  },
+  answer: function(){
+  	$("#aCheck").css("color","blue");
+  	$("#alert").text('');
+  	var checkedValues =[];
+  	checkedValues = $('input:checkbox:checked').map(function() {
+  		return this.value;
+  	}).get();
 
-	console.log('here2');
 
-		if ($.inArray('false',checkedValues)>=0){
-			console.log('wrong');
-		}
-		else{
-			quiz.correct=quiz.correct+1;
+  		console.log(checkedValues.length);
+  	if (checkedValues.length != 0) {
+  		//need to be changed
+  		$("#quiz").attr("class", "anseredQuiz");
+  	//$("#explain").css("visibility","visible");
+  	console.log('here');
+  	//use current question json data to get correct answer and mark it so
+  	$('input:checkbox').each(function() {
+  	console.log('hereq');
+  	//needs to be changed
+  		if(this.value==='false'){
+  			//$(this).parent().css( "background-color", "red" );
+  		}
+  		else{
+  			$(this).parent().addClass("correct");
+  		}
+  	});
 
-		}
-		$("#score").text('Score:'+quiz.correct);
-	}
-}
-$(quiz.init);
+  	console.log('here2');
+
+  		if ($.inArray('false',checkedValues)>=0){
+  			console.log('wrong');
+  		}
+  		else{
+  			this.correct=this.correct+1;
+
+  		}
+  		$("#score").text('Score:'+this.correct);
+  	}
+  }
+};
+
+$(function () {
+  var quiz = new Quiz();
+});
