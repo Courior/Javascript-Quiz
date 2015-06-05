@@ -35,20 +35,30 @@ Quiz.prototype = {
   	var questions = [];
   	console.log("parseXml");
   	console.log(xml);
-  	//console.log($(xml).find('question').each().text());
-  /*	var question = $(xml).find('question')
-  	.each(function(question){
-  		console.log(question);
-  		//add each question to data json
-  		//add each text to question
-  		console.log($(question).find('text').text());
-  		//add each explanaion to question
-  		console.log($(question).find('explanation').text());
+    //get each question
+    $(xml).find("question").each(function()
+            {
+        //create question json
+        var question = {};
+        //add questions text to question json
+        question.text = $(this).find("text").text();
+        //add ecplanation text to question json
+        question.explanation = $(this).find("explanation").text();
+        //add each answer to question
+        question.answers = [];
+        $(this).find("answer").each(function()
+          {
+            answer={};
+            answer.text=$(this).text();
+            answer.result=$(this).attr("result");
+            question.answers.push(answer);
+          }
 
-  		//add each answer to question
+        );
+        //output question to console.log
+        console.log(question);
+      });//end of $(xml).find("question")
 
-  	})*/
-  	//add each question to array
   },
   errorHandler: function(err){
       console.log(err);

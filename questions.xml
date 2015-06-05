@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <questions>
 <question number="0">
-  <text></text>
-  <answer result='false'></answer>
-  <answer result='false'></answer>
-  <answer result='false'></answer>
-  <answer result='true'></answer>
+  <text>test</text>
+  <answer result='false'>test1</answer>
+  <answer result='false'>test2</answer>
+  <answer result='false'>test3</answer>
+  <answer result='true'>test4</answer>
  <explanation></explanation>
 </question>
 <question number="1">
