@@ -2,11 +2,13 @@ var Quiz = function () {
   this.data = undefined;
   this.correct = undefined;
   this.answered = undefined;
+  this.test = "this";
   this.currentQuestion = {};
   this.ajaxSettings= {
     method  : 'get',
     url     : './questions.xml',
     timeout : 3000,
+    context : this,
     success : this.parseXml,
 		error   : this.errorHandler,
 		complete: this.completeHandler
@@ -17,13 +19,6 @@ var Quiz = function () {
   	this.correct=0;
   	this.answered=1;
   	$("#answerdQuestion").text('Question:'+this.answered);
-  //	$.getJSON( "questions.json", this.populateData);
-  /*	$.ajax({
-      type: "GET",
-      url: "questions.xml",
-      dataType: "xml",
-      success: this.parseXml
-  	});*/
     //make AJAX call
     $.ajax(this.ajaxSettings);
 
@@ -56,9 +51,13 @@ Quiz.prototype = {
 
         );
         //output question to console.log
-        console.log(question);
-      });//end of $(xml).find("question")
 
+        questions.push(question);
+      });//end of $(xml).find("question")
+      console.log(this.test);
+      this.populateData(questions);
+      //this.data.questions= questions;
+      //console.log(this);
   },
   errorHandler: function(err){
       console.log(err);
@@ -75,30 +74,31 @@ Quiz.prototype = {
   populateData: function(data){
 		// take data in report and output it to the report table
 		this.data = data;
-		$q = this.data.questions.question[1];
+    console.log(this.data);
+		$q = this.data[1];
 		console.log($q);
 		this.outputRandomQuestion();
 	},
   outputRandomQuestion: function(){
   	$("#nav").empty();
-  	console.log('Length='+this.data.questions.question.length);
-  	var number = Math.floor((Math.random() * this.data.questions.question.length-1)+1);
+  	console.log('Length='+this.data.length);
+  	var number = Math.floor((Math.random() * this.data.length-1)+1);
   	console.log('Random Number='+number);
-  	this.currentQuestion= this.data.questions.question[number];
-  	console.log(this.data.questions.question[number]);
-  	$("#question").text(this.currentQuestion.q);
-  	$("#explain").text(this.currentQuestion.ex);
+  	this.currentQuestion= this.data[number];
+  	console.log(this.currentQuestion);
+  	$("#question").text(this.currentQuestion.text);
+  	$("#explain").text(this.currentQuestion.explanation);
   	//$("#explain").css("visibility","hidden");
-  	$("#aCheck").val(this.currentQuestion.a['-answer']);
-  	$("#bCheck").val(this.currentQuestion.b['-answer']);
-  	$("#cCheck").val(this.currentQuestion.c['-answer']);
-  	$("#dCheck").val(this.currentQuestion.d['-answer']);
-  	$("#aLabel").text(this.currentQuestion.a['#text']);
-  	$("#bLabel").text(this.currentQuestion.b['#text']);
-  	$("#cLabel").text(this.currentQuestion.c['#text']);
-  	$("#dLabel").text(this.currentQuestion.d['#text']);
+  	$("#aCheck").val(this.currentQuestion.answers[0].result);
+  	$("#bCheck").val(this.currentQuestion.answers[1].result);
+  	$("#cCheck").val(this.currentQuestion.answers[2].result);
+  	$("#dCheck").val(this.currentQuestion.answers[3].result);
+  	$("#aLabel").text(this.currentQuestion.answers[0].text);
+  	$("#bLabel").text(this.currentQuestion.answers[1].text);
+  	$("#cLabel").text(this.currentQuestion.answers[2].text);
+  	$("#dLabel").text(this.currentQuestion.answers[3].text);
   	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
-  	if(this.data.questions.question.length>2)
+  	if(this.data.length>2)
   		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
   	else
   		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next',disabled:'disabled'});
@@ -106,7 +106,7 @@ Quiz.prototype = {
   	$("#nav").append($next);
   	$answer.on("click",this.answer);
   	$next.on("click",this.nextQuestion);
-  	this.data.questions.question.splice(number,1);
+  	this.data.splice(number,1);
   },
 
   nextQuestion: function(){
