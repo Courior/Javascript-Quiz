@@ -1,6 +1,6 @@
 var Quiz = function () {
   this.data = undefined;
-  this.correct = undefined;
+  this.correct = 0;
   this.answered = undefined;
   this.test = "this";
   this.currentQuestion = {};
@@ -98,18 +98,20 @@ Quiz.prototype = {
   	$("#cLabel").text(this.currentQuestion.answers[2].text);
   	$("#dLabel").text(this.currentQuestion.answers[3].text);
   	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
-  	if(this.data.length>2)
+  	if(this.data.length>1)
   		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
   	else
   		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next',disabled:'disabled'});
   	$("#nav").append($answer);
   	$("#nav").append($next);
-  	$answer.on("click",this.answer);
-  	$next.on("click",this.nextQuestion);
+  	$answer.on("click",this.answer.bind(this));
+  	$next.on("click",this.nextQuestion.bind(this));
   	this.data.splice(number,1);
   },
 
-  nextQuestion: function(){
+  nextQuestion: function(event){
+    console.log(event);
+    console.log(this);
   	this.answered=this.answered+1;
   	//needs to be changed
   	$("#quiz").attr("class", "unanseredQuiz");
@@ -117,9 +119,10 @@ Quiz.prototype = {
   	$(".correct").removeClass("correct");
   	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
 
-
+    console.log(this);
   	this.outputRandomQuestion();
   },
+
   answer: function(){
   	$("#aCheck").css("color","blue");
   	$("#alert").text('');

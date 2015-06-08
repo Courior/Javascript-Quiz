@@ -16,8 +16,32 @@
   <answer result='true'>Liskov substitution principle</answer>
   <explanation>Option D Liskov Substitution Principle is the correct answer. Class DynamicArray having a method to insert an element at a specified index cannot be inherited by class Queue, which only allows elements to be inserted at the rear. In other words, a Queue is not a DynamicArray which violates the principle. The other options are invalid.</explanation>
 </question>
-<question number="2">
-  <text>A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
+<question number="3">
+  <text> question number="3"A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
+  <answer result='true'>Single responsibility principle</answer>
+  <answer result='false'>Dependency inversion principle</answer>
+  <answer result='false'>Open closed principle</answer>
+  <answer result='false'>Liskov substitution principle</answer>
+ <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
+</question>
+<question number="4">
+  <text> question number="4"ge employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
+  <answer result='true'>Single responsibility principle</answer>
+  <answer result='false'>Dependency inversion principle</answer>
+  <answer result='false'>Open closed principle</answer>
+  <answer result='false'>Liskov substitution principle</answer>
+ <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
+</question>
+<question number="5">
+  <text>question number="5"A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
+  <answer result='true'>Single responsibility principle</answer>
+  <answer result='false'>Dependency inversion principle</answer>
+  <answer result='false'>Open closed principle</answer>
+  <answer result='false'>Liskov substitution principle</answer>
+ <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
+</question>
+<question number="6">
+  <text>question number="6"A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
   <answer result='true'>Single responsibility principle</answer>
   <answer result='false'>Dependency inversion principle</answer>
   <answer result='false'>Open closed principle</answer>
