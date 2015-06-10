@@ -2,36 +2,31 @@
 <html>
     <head>
     <title>Architecture Quiz</title>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script type="text/javascript" src="quiz.js"></script>
-			<link rel='stylesheet' type='text/css' media='screen' href='quiz.css' />
 
+			<link rel='stylesheet' type='text/css' media='screen' href='quiz.css' />
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="handlebars-v3.0.3.js"></script>
+      <script id="template" type = "text/x-handlebars-template">
+        <div id="text">{{text}}</div>
+        {{#each answers}}
+        <div class='answer'>
+    			<input class='answerCheckbox' type="checkbox" id="{{id}}" value="{{result}}"/>
+    			<label class='answerLabel' id="aLabel" for="{{id}}">{{text}}</label>
+    		</div>
+        {{/each}}
+        <div id="explain">{{explanation}}</div>
+      </script>
     </head>
 <body>
 	<div id="quiz" class="unanseredQuiz">
-		<div id="answerdQuestion"></div>
 
+		<div id="answerdQuestion"></div>
 		<div id="question"></div>
-		<div class='answer a' id="a">
-			<input class='answerCheckbox' type="checkbox" id="aCheck"/>
-			<label class='a' id="aLabel" for="aCheck"></label>
-		</div>
-		<div class='answer b' id="b">
-			<input class='answerCheckbox' type="checkbox" id="bCheck"/>
-			<label class='b' id="bLabel" for="bCheck"></label>
-		</div>
-		<div class='answer c' id="c">
-			<input class='answerCheckbox' type="checkbox" id="cCheck"/>
-			<label class='c' id="cLabel" for="cCheck"></label>
-		</div>
-		<div class='answer d' id="d">
-			<input class='answerCheckbox' type="checkbox" id="dCheck"/>
-			<label class='d' id="dLabel" for="dCheck"></label>
-		</div>
-		<div id="explain"></div>
 		<div id="nav"></div>
 		<div id="alert"></div>
-		<div id="score"><div>
+		<div id="score"></div>
 	</div>
+
+  <script type="text/javascript" src="quiz.js"></script>
 </body>
 </html>
