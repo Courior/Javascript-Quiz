@@ -49,4 +49,15 @@
  <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
 </question>
 
+<question number="6">
+  <text>question number="7"A class Store Manager is designed to manage employee, attend customers, clean store and manage funds. However, the store has staff, cashier and cleaners. Which of the following design principle is violated?</text>
+  <answer id='a' result='true'>Single responsibility principle</answer>
+  <answer id='b' result='true'>Dependency inversion principle</answer>
+  <answer id='c' result='true'>Open closed principle</answer>
+  <answer id='e'  result='false'>Liskov substitution principle</answer>
+  <answer id='f'  result='false'>Liskov substitution principle</answer>
+  <answer id='g'  result='true'>Liskov substitution principle</answer>
+ <explanation>Option A Single Responsibility Principle is the correct answer. The Store Manager is present to manage employee and responsible for store operations. Other classes like Employee, Customer, Cashier and Cleaner would have their own responsibility interacting with the Store Manager. In other words, change in billing procedure should be looked after by the cashier and should not affect the Store Manager directly. The other options do not apply</explanation>
+</question>
+
 </questions>

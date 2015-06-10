@@ -83,14 +83,10 @@ Quiz.prototype = {
   outputRandomQuestion: function(){
   	$("#nav").empty();
     $("#question").empty();
-  	console.log('Length='+this.data.length);
   	var number = Math.floor((Math.random() * this.data.length-1)+1);
-  	console.log('Random Number='+number);
   	this.currentQuestion= this.data[number];
-  	console.log(this.currentQuestion);
     var template=Handlebars.compile($('#template').html());
     var temp= template(this.currentQuestion);
-    console.log(temp);
   /*	$("#question").text(this.currentQuestion.text);
   	$("#explain").text(this.currentQuestion.explanation);
   	//$("#explain").css("visibility","hidden");
@@ -116,8 +112,7 @@ Quiz.prototype = {
   },
 
   nextQuestion: function(event){
-    console.log(event);
-    console.log(this);
+
   	this.answered=this.answered+1;
   	//needs to be changed
   	$("#quiz").attr("class", "unanseredQuiz");
@@ -125,7 +120,6 @@ Quiz.prototype = {
   	//$(".correct").removeClass("correct");
   	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
 
-    console.log(this);
   	this.outputRandomQuestion();
   },
 
@@ -133,12 +127,17 @@ Quiz.prototype = {
   	$("#aCheck").css("color","blue");
   	$("#alert").text('');
   	var checkedValues =[];
-  	checkedValues = $('input:checkbox:checked').map(function() {
+    var uncheckedValues =[];
+  	checkedValues = $('input:checkbox:checked.answerCheckbox').map(function() {
+  		return this.value;
+  	}).get();
+    unCheckedValues = $('input:checkbox:not(:checked).answerCheckbox').map(function() {
   		return this.value;
   	}).get();
 
 
   		console.log(checkedValues.length);
+      console.log(unCheckedValues.length);
   	if (checkedValues.length != 0) {
   		//need to be changed
   		$("#quiz").attr("class", "anseredQuiz");
@@ -162,8 +161,12 @@ Quiz.prototype = {
   			console.log('wrong');
   		}
   		else{
-  			this.correct=this.correct+1;
-
+        if ($.inArray('true',unCheckedValues)>=0){
+    			console.log('wrong');
+    		}
+        else{
+  			     this.correct=this.correct+1;
+        }
   		}
   		$("#score").text('Score:'+this.correct);
   	}
