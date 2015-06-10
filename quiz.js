@@ -46,6 +46,7 @@ Quiz.prototype = {
             answer={};
             answer.text=$(this).text();
             answer.result=$(this).attr("result");
+            answer.id=$(this).attr("id");
             question.answers.push(answer);
           }
 
@@ -81,12 +82,16 @@ Quiz.prototype = {
 	},
   outputRandomQuestion: function(){
   	$("#nav").empty();
+    $("#question").empty();
   	console.log('Length='+this.data.length);
   	var number = Math.floor((Math.random() * this.data.length-1)+1);
   	console.log('Random Number='+number);
   	this.currentQuestion= this.data[number];
   	console.log(this.currentQuestion);
-  	$("#question").text(this.currentQuestion.text);
+    var template=Handlebars.compile($('#template').html());
+    var temp= template(this.currentQuestion);
+    console.log(temp);
+  /*	$("#question").text(this.currentQuestion.text);
   	$("#explain").text(this.currentQuestion.explanation);
   	//$("#explain").css("visibility","hidden");
   	$("#aCheck").val(this.currentQuestion.answers[0].result);
@@ -96,7 +101,8 @@ Quiz.prototype = {
   	$("#aLabel").text(this.currentQuestion.answers[0].text);
   	$("#bLabel").text(this.currentQuestion.answers[1].text);
   	$("#cLabel").text(this.currentQuestion.answers[2].text);
-  	$("#dLabel").text(this.currentQuestion.answers[3].text);
+  	$("#dLabel").text(this.currentQuestion.answers[3].text);*/
+    $("#question").append(temp);
   	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
   	if(this.data.length>1)
   		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
@@ -116,7 +122,7 @@ Quiz.prototype = {
   	//needs to be changed
   	$("#quiz").attr("class", "unanseredQuiz");
   	$("#answerdQuestion").text('Question:'+this.answered);
-  	$(".correct").removeClass("correct");
+  	//$(".correct").removeClass("correct");
   	$('.answerCheckbox:checked').attr('checked', false);  // Unchecks it
 
     console.log(this);
