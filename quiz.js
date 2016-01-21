@@ -18,7 +18,6 @@ var Quiz = function () {
   	console.log("init ");
   	this.correct=0;
   	this.answered=1;
-  	$("#answerdQuestion").text('Question:'+this.answered);
     //make AJAX call
     $.ajax(this.ajaxSettings);
 
@@ -66,6 +65,8 @@ Quiz.prototype = {
 
   completeHandler: function (){
       console.log('AJAX call is complete');
+	  $("#ansBtn").on("click",this.answer.bind(this));
+	  $("#nxtBtn").on("click",this.nextQuestion.bind(this));
   },
   getXml: function(data){
   	console.log(data);
@@ -78,10 +79,10 @@ Quiz.prototype = {
     console.log(this.data);
 		$q = this.data[1];
 		console.log($q);
+		
 		this.outputRandomQuestion();
 	},
   outputRandomQuestion: function(){
-  	$("#nav").empty();
     $("#question").empty();
   	var number = Math.floor((Math.random() * this.data.length-1)+1);
   	this.currentQuestion= this.data[number];
@@ -99,15 +100,13 @@ Quiz.prototype = {
   	$("#cLabel").text(this.currentQuestion.answers[2].text);
   	$("#dLabel").text(this.currentQuestion.answers[3].text);*/
     $("#question").append(temp);
-  	var $answer= $('<input/>').attr({ type: 'button', name:'btn_a',id:'btn_a', value:'Answer'});
+	$("#answerdQuestion").text('Question:'+this.answered);
+
   	if(this.data.length>1)
-  		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next'});
+  		$("#nxtBtn").prop('disabled',false);
   	else
-  		var $next= $('<input/>').attr({ type: 'button', name:'btn_b',id:'btn_b', value:'Next',disabled:'disabled'});
-  	$("#nav").append($answer);
-  	$("#nav").append($next);
-  	$answer.on("click",this.answer.bind(this));
-  	$next.on("click",this.nextQuestion.bind(this));
+  		$("#nxtBtn").prop('disabled',true);
+  	
   	this.data.splice(number,1);
   },
 
@@ -124,6 +123,7 @@ Quiz.prototype = {
   },
 
   answer: function(){
+	 console.log(this.correct);
   	$("#aCheck").css("color","blue");
   	$("#alert").text('');
   	var checkedValues =[];
@@ -151,7 +151,7 @@ Quiz.prototype = {
   			//$(this).parent().css( "background-color", "red" );
   		}
   		else{
-  			$(this).parent().addClass("correct");
+  			$(this).parent().parent().addClass("correct");
   		}
   	});
 
@@ -161,13 +161,15 @@ Quiz.prototype = {
   			console.log('wrong');
   		}
   		else{
-        if ($.inArray('true',unCheckedValues)>=0){
-    			console.log('wrong');
-    		}
-        else{
-  			     this.correct=this.correct+1;
-        }
+			if ($.inArray('true',unCheckedValues)>=0){
+					console.log('wrong');
+				}
+			else{
+					console.log(this.correct);
+					 this.correct=this.correct+1;
+			}
   		}
+		console.log(this.correct);
   		$("#score").text('Score:'+this.correct);
   	}
   }

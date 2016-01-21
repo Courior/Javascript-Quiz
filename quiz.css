@@ -1,9 +1,7 @@
 body {
     background-color: #d0e4fe;
 }
-#quiz{
-	max-width: 360px;
-}
+
 .unanseredQuiz #explain{
 
   visibility: hidden;
@@ -23,7 +21,4 @@ h1 {
     text-align: center;
 }
 
-p {
-    font-family: "Times New Roman";
-    font-size: 20px;
-}
+
