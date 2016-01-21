@@ -7,24 +7,41 @@
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
       <script type="text/javascript" src="handlebars-v3.0.3.js"></script>
       <script id="template" type = "text/x-handlebars-template">
-        <div id="text">{{text}}</div>
+		<div id="answerdQuestion" class="panel-heading"></div>
+        <div id="text" class="panel-body"><p>{{text}}</p></div>
+		<ul class="list-group">
         {{#each answers}}
-        <div class='answer'>
-    			<input class='answerCheckbox' type="checkbox" id="{{id}}" value="{{result}}"/>
-    			<label class='answerLabel' id="aLabel" for="{{id}}">{{text}}</label>
-    		</div>
+			<li class='list-group-item answer checkbox'>
+				<label>
+					<input class='answerCheckbox' type="checkbox" id="{{id}}" value="{{result}}"/>
+					{{text}}
+				</label>
+    		</li>
         {{/each}}
-        <div id="explain">{{explanation}}</div>
+		</ul>
+        <div id="explain" class="panel-body"><p>{{explanation}}</p></div>
       </script>
+	  <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet">
     </head>
 <body>
 	<div id="quiz" class="unanseredQuiz">
-
-		<div id="answerdQuestion"></div>
-		<div id="question"></div>
-		<div id="nav"></div>
-		<div id="alert"></div>
-		<div id="score"></div>
+		<div class="container">
+				
+			<div id="question" class="panel panel-default"></div>
+			<div id="nav" class="btn-group">
+				<button type="button" id="ansBtn" class="btn btn-primary">Answer</button>
+				<button id="nxtBtn" class="btn btn-primary">
+					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+					Next
+				</button>
+			</div>
+			<div class="row">
+				<div id="alert" class="col-md-12"></div>
+			</div>
+			<div class="row">
+				<div id="score" class="col-md-12"></div>
+			</div>
+		</div>
 	</div>
 
   <script type="text/javascript" src="quiz.js"></script>
