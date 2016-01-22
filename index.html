@@ -6,7 +6,7 @@
 			<link rel='stylesheet' type='text/css' media='screen' href='quiz.css' />
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
       <script type="text/javascript" src="handlebars-v3.0.3.js"></script>
-      <script id="template" type = "text/x-handlebars-template">
+      <script id="questionTemplate" type = "text/x-handlebars-template">
 		<div id="answerdQuestion" class="panel-heading"></div>
         <div id="text" class="panel-body"><p>{{text}}</p></div>
 		<ul class="list-group">
@@ -21,7 +21,7 @@
 		</ul>
         <div id="explain" class="panel-body"><p>{{explanation}}</p></div>
       </script>
-	  <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet">
+	  <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
     </head>
 <body>
 	<div id="quiz" class="unanseredQuiz">
@@ -30,9 +30,9 @@
 			<div id="question" class="panel panel-default"></div>
 			<div id="nav" class="btn-group">
 				<button type="button" id="ansBtn" class="btn btn-primary">Answer</button>
-				<button id="nxtBtn" class="btn btn-primary">
-					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+				<button id="nxtBtn" class="btn btn-primary">					
 					Next
+					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 				</button>
 			</div>
 			<div class="row">
