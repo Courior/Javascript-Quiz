@@ -10,10 +10,14 @@ body {
   visibility: visible;
 }
 .anseredQuiz .answer{
-  background: red;
+  background: #d9534f;
+  border-bottom-color:#d9534f;
+  border-top-color:#d9534f;
 }
 .anseredQuiz .answer.correct{
-  background: green;
+  background: #5cb85c;
+  border-bottom-color:#5cb85c;
+  border-top-color:#5cb85c;
 }
 
 h1 {
