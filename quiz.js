@@ -86,7 +86,8 @@ Quiz.prototype = {
     $("#question").empty();
   	var number = Math.floor((Math.random() * this.data.length-1)+1);
   	this.currentQuestion= this.data[number];
-    var template=Handlebars.compile($('#template').html());
+	console.log(this.currentQuestion);
+    var template=Handlebars.compile($('#questionTemplate').html());
     var temp= template(this.currentQuestion);
   /*	$("#question").text(this.currentQuestion.text);
   	$("#explain").text(this.currentQuestion.explanation);
