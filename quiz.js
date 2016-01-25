@@ -67,6 +67,7 @@ Quiz.prototype = {
       console.log('AJAX call is complete');
 	  $("#ansBtn").on("click",this.answer.bind(this));
 	  $("#nxtBtn").on("click",this.nextQuestion.bind(this));
+	  $("#score").text('Score:'+this.correct);
   },
   getXml: function(data){
   	console.log(data);
