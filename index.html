@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Architecture Quiz</title>
+		<title>Quiz</title>
 
-			<link rel='stylesheet' type='text/css' media='screen' href='quiz.css' />
-      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-      <script type="text/javascript" src="handlebars-v3.0.3.js"></script>
-      <script id="questionTemplate" type = "text/x-handlebars-template">
-		<div id="answerdQuestion" class="panel-heading"></div>
-        <div id="text" class="panel-body"><p>{{text}}</p></div>
-		<ul class="list-group">
-        {{#each answers}}
-			<li class='list-group-item answer checkbox'>
-				<label>
-					<input class='answerCheckbox' type="checkbox" id="{{id}}" value="{{result}}"/>
-					{{text}}
-				</label>
-    		</li>
-        {{/each}}
-		</ul>
-        <div id="explain" class="panel-body"><p>{{explanation}}</p></div>
-      </script>
-	  <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
+		<link rel='stylesheet' type='text/css' media='screen' href='quiz.css' />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="handlebars-v3.0.3.js"></script>
+		<script id="questionTemplate" type = "text/x-handlebars-template">
+			<div id="answerdQuestion" class="panel-heading"></div>
+			<div id="text" class="panel-body"><p>{{text}}</p></div>
+			<ul class="list-group">
+			{{#each answers}}
+				<li class='list-group-item answer checkbox'>
+					<label>
+						<input class='answerCheckbox' type="checkbox" id="{{id}}" value="{{result}}"/>
+						{{text}}
+					</label>
+				</li>
+			{{/each}}
+			</ul>
+			<div id="explain" class="panel-body"><p>{{explanation}}</p></div>
+		</script>
+		<link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
+		<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
     </head>
-<body>
-	<div id="quiz" class="unanseredQuiz">
+	<body>
 		<div class="container">
-				
-			<div id="question" class="panel panel-default"></div>
-			<div id="nav" class="btn-group">
-				<button type="button" id="ansBtn" class="btn btn-primary">Answer</button>
-				<button id="nxtBtn" class="btn btn-primary">					
-					Next
-					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-				</button>
-			</div>
-			<div class="row">
-				<div id="alert" class="col-md-12"></div>
-			</div>
-			<div class="row">
-				<div id="score" class="col-md-12"></div>
+			<h2>Dynamic Tabs</h2>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+				<li><a data-toggle="tab" href="#quizTab">Quiz</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<h3>HOME</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div id="quizTab" class="tab-pane fade">
+					<h3>Quiz</h3>
+					<div id="quiz" class="unanseredQuiz">
+						<div class="container">
+
+							<div id="question" class="panel panel-default"></div>
+							<div id="nav" class="btn-group">
+								<button type="button" id="ansBtn" class="btn btn-primary">Answer</button>
+								<button id="nxtBtn" class="btn btn-primary">					
+									Next
+									<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="row">
+								<div id="alert" class="col-md-12"></div>
+							</div>
+							<div class="row">
+								<div id="score" class="col-md-12"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
-  <script type="text/javascript" src="quiz.js"></script>
-</body>
+		<script type="text/javascript" src="quiz.js"></script>
+	</body>
 </html>
