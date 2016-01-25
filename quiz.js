@@ -67,6 +67,7 @@ Quiz.prototype = {
       console.log('AJAX call is complete');
 	  $("#ansBtn").on("click",this.answer.bind(this));
 	  $("#nxtBtn").on("click",this.nextQuestion.bind(this));
+	  $("#score").text('Score:'+this.correct);
   },
   getXml: function(data){
   	console.log(data);
@@ -86,7 +87,8 @@ Quiz.prototype = {
     $("#question").empty();
   	var number = Math.floor((Math.random() * this.data.length-1)+1);
   	this.currentQuestion= this.data[number];
-    var template=Handlebars.compile($('#template').html());
+	console.log(this.currentQuestion);
+    var template=Handlebars.compile($('#questionTemplate').html());
     var temp= template(this.currentQuestion);
   /*	$("#question").text(this.currentQuestion.text);
   	$("#explain").text(this.currentQuestion.explanation);
